@@ -98,10 +98,10 @@ docs-build: docs-clean
 
 .PHONY: docs-install
 docs-install: docs-build
-	mkdir -p docs/_install
+	mkdir -p docs/_install/en
 	cp docs/latest_redirect.html docs/_install/index.html
 ifdef docs_install_version
-	mkdir -p docs/_install/en/${docs_install_version}
+	rm -rf docs/_install/en/${docs_install_version}
 	cp -r docs/_build/html docs/_install/en/${docs_install_version}
 endif
 
