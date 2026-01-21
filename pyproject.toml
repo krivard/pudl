@@ -302,7 +302,7 @@ mkdir -p docs/_install/en; \
 cp docs/latest_redirect.html docs/_install/index.html; \
 if [ -n "${docs_install_version}" ]; then \
     rm -rf "docs/_install/en/${docs_install_version}"; \
-    cp -r "docs/_build/html docs/_install/en/${docs_install_version}"; \
+    cp -r "docs/_build/html" "docs/_install/en/${docs_install_version}"; \
 fi'
 """, depends-on = ["docs-build"], description = "Install Sphinx documentation to version tree" }
 
