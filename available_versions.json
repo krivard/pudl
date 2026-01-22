@@ -1,0 +1,11 @@
+[
+    {
+        "name": "latest",
+        "version": "latest",
+        "url": "https://krivard.github.io/pudl/en/latest/"
+    },
+    {
+        "version": "v2099.9.9",
+        "url": "https://krivard.github.io/pudl/en/v2099.9.9/"
+    },
+]
