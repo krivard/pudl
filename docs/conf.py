@@ -144,14 +144,6 @@ html_icon = "_static/favicon.ico"
 # documentation.
 html_theme_options = {
     "navigation_with_keys": True,
-    "light_css_variables": {
-        "color-announcement-background": "yellow",
-        "color-announcement-text": "red",
-    },
-    "dark_css_variables": {
-        "color-announcement-background": "yellow",
-        "color-announcement-text": "red",
-    },
     "icon_links": [
         {
             "name": "GitHub",
@@ -160,6 +152,11 @@ html_theme_options = {
             "type": "fontawesome",
         }
     ],
+    "switcher": {
+        "json_url": "https://krivard.github.io/pudl/available_versions.json",
+        "version_match": "latest"
+    },
+   "navbar_start": ["navbar-logo", "version-switcher"],
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
