@@ -187,6 +187,7 @@ Attributes
    pudl.analysis.plant_parts_eia.PRIORITY_ATTRIBUTES_DICT
    pudl.analysis.plant_parts_eia.MAX_MIN_ATTRIBUTES_DICT
    pudl.analysis.plant_parts_eia.FIRST_COLS
+   pudl.analysis.plant_parts_eia.plant_parts_assets
 
 
 Classes
@@ -210,6 +211,7 @@ Functions
 .. autoapisummary::
 
    pudl.analysis.plant_parts_eia.out_eia__yearly_generators_by_ownership
+   pudl.analysis.plant_parts_eia.plant_part_asset_factory
    pudl.analysis.plant_parts_eia.out_eia__yearly_plant_parts
    pudl.analysis.plant_parts_eia.make_id_cols_list
    pudl.analysis.plant_parts_eia.make_parts_to_ids_dict
@@ -304,9 +306,16 @@ Module Contents
    Create mega generators table asset.
 
 
-.. py:function:: out_eia__yearly_plant_parts(out_eia__yearly_generators_by_ownership: pandas.DataFrame, out_eia__yearly_plants: pandas.DataFrame, out_eia__yearly_utilities: pandas.DataFrame) -> pandas.DataFrame
+.. py:function:: plant_part_asset_factory(part_name: str) -> dagster.AssetsDefinition
 
-   Create plant parts list asset.
+   Asset factory to create assets for each individual plant part.
+
+
+.. py:data:: plant_parts_assets
+
+.. py:function:: out_eia__yearly_plant_parts(out_eia__yearly_plants: pandas.DataFrame, out_eia__yearly_utilities: pandas.DataFrame, **part_dfs: pandas.DataFrame) -> pandas.DataFrame
+
+   Create plant parts list asset by concatenating all plant-part assets.
 
 
 .. py:class:: MakeMegaGenTbl
@@ -473,9 +482,15 @@ Module Contents
    .. py:attribute:: id_cols_list
 
 
-   .. py:method:: execute(gens_mega: pandas.DataFrame, plants_eia860: pandas.DataFrame, utils_eia860: pandas.DataFrame) -> pandas.DataFrame
+   .. py:method:: create_one_plant_part(part_name: str, gens_mega: pandas.DataFrame)
 
-      Aggregate and slice data points by each plant part.
+      Create a table of attributes for one plant part.
+
+
+
+   .. py:method:: execute(concatenated_plant_parts: pandas.DataFrame, plants_eia860: pandas.DataFrame, utils_eia860: pandas.DataFrame)
+
+      Add 1:m matches and additional columns to concatenated plant parts.
 
       :returns: The complete plant parts list
 

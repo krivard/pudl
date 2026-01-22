@@ -28,6 +28,8 @@ Submodules
    /autoapi/pudl/package_data/ferc1/index
    /autoapi/pudl/package_data/glue/index
    /autoapi/pudl/package_data/phmsagas/index
+   /autoapi/pudl/package_data/rus12/index
+   /autoapi/pudl/package_data/rus7/index
    /autoapi/pudl/package_data/settings/index
    /autoapi/pudl/package_data/test/index
    /autoapi/pudl/package_data/vcerare/index

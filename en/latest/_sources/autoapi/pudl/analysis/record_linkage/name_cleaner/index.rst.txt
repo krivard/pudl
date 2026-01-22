@@ -213,13 +213,10 @@ Module Contents
       The dictionary must contain cleaning rules written in regex format.
 
       :param col: The column that needs to be cleaned.
-      :type col: pd.Series
-      :param dict_regex_rules: a dictionary of cleaning rules written in regex with the format
-                               [rule name] : ['replacement', 'regex rule']
-      :type dict_regex_rules: dict
+      :param dict_regex_rules: a dictionary of cleaning rules written in regex with the
+                               format [rule name] : ['replacement', 'regex rule']
 
-      :returns: the modified/cleaned column.
-      :rtype: (pd.Series)
+      :returns: The modified/cleaned column.
 
 
 
@@ -228,10 +225,8 @@ Module Contents
       Removes unicode characters that are unreadable in ASCII format.
 
       :param col: series containing unicode characters.
-      :type col: pd.Series
 
       :returns: the corresponding input series without unicode characters.
-      :rtype: (pd.Series)
 
 
 
@@ -261,10 +256,8 @@ Module Contents
       Clean names and normalize legal terms.
 
       :param col: the column that is to be cleaned
-      :type col: pd.Series
 
-      :returns: the clean version of the column
-      :rtype: clean_col (pd.Series)
+      :returns: A the clean version of the column.
 
 
 
@@ -272,16 +265,14 @@ Module Contents
 
       Clean up text names in a dataframe.
 
-      :param df: the input dataframe that contains the text's name to be cleaned
-      :type df: dataframe
-      :param return_as_dframe: whether to return the cleaned data as a dataframe or series.
-                               Useful to return as a dataframe if used in a cleaning pipeline with no
-                               vectorization step after name cleaning. If multiple columns are passed in for
-                               cleaning then output will be a dataframe regardless of this parameter.
-      :type return_as_dframe: bool
+      :param df: the input dataframe that contains the text's name to be cleaned.
+      :param return_as_dframe: whether to return the cleaned data as a dataframe or
+                               series. Useful to return as a dataframe if used in a cleaning pipeline
+                               with no vectorization step after name cleaning. If multiple columns are
+                               passed in for cleaning then output will be a dataframe regardless of
+                               this parameter.
 
-      :returns: the clean version of the input dataframe
-      :rtype: df (dataframe)
+      :returns: A clean version of the input dataframe.
 
 
 

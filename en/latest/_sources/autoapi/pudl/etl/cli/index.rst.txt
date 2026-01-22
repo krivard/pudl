@@ -42,7 +42,7 @@ Module Contents
    :returns: The job definition to be executed.
 
 
-.. py:function:: pudl_etl(etl_settings_yml: pathlib.Path, dagster_workers: int, gcs_cache_path: str, logfile: pathlib.Path, loglevel: str)
+.. py:function:: pudl_etl(etl_settings_yml: pathlib.Path, dagster_workers: int, cloud_cache_path: str, logfile: pathlib.Path, loglevel: str)
 
    Use Dagster to run the PUDL ETL, as specified by the file ETL_SETTINGS_YML.
 

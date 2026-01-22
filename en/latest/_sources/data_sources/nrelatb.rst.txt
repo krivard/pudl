@@ -19,6 +19,8 @@ NREL Annual Technology Baseline (ATB) for Electricity
      - 2021-2024
    * - PUDL Code
      - ``nrelatb``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.10839267 <https://doi.org/10.5281/zenodo.10839267>`__
    * - Issues
      - `Open NREL Annual Technology Baseline (ATB) for Electricity issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Anrelatb>`__
 

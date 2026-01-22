@@ -28,17 +28,6 @@ Attributes
 
    pudl.extract.vcerare.logger
    pudl.extract.vcerare.VCERARE_PAGES
-   pudl.extract.vcerare.raw_vcerare__all_dfs
-   pudl.extract.vcerare.raw_vcerare_assets
-
-
-Classes
--------
-
-.. autoapisummary::
-
-   pudl.extract.vcerare.VCERareMetadata
-   pudl.extract.vcerare.Extractor
 
 
 Functions
@@ -46,7 +35,8 @@ Functions
 
 .. autoapisummary::
 
-   pudl.extract.vcerare.raw_vcerare_asset_factory
+   pudl.extract.vcerare._clean_column_names
+   pudl.extract.vcerare.extract_vcerare
    pudl.extract.vcerare.raw_vcerare__lat_lon_fips
 
 
@@ -56,117 +46,16 @@ Module Contents
 .. py:data:: logger
 
 .. py:data:: VCERARE_PAGES
-   :value: ['offshore_wind_power_140m', 'onshore_wind_power_100m', 'fixed_solar_pv_lat_upv']
+
+.. py:function:: _clean_column_names(table_relation: duckdb.DuckDBPyRelation) -> duckdb.DuckDBPyRelation
+
+   Apply basic cleaning to column names.
 
 
-.. py:class:: VCERareMetadata(*args, **kwargs)
+.. py:function:: extract_vcerare(context) -> tuple[dict[int, pudl.helpers.ParquetData], dict[int, pudl.helpers.ParquetData], dict[int, pudl.helpers.ParquetData]]
 
-   Bases: :py:obj:`pudl.extract.extractor.GenericMetadata`
+   Extract data from all vcerare pages and write to parquet files.
 
-
-   Special metadata class for VCE RARE Power Dataset.
-
-
-   .. py:attribute:: _file_name
-      :value: None
-
-
-
-   .. py:method:: _load_column_maps(column_map_pkg) -> dict
-
-      There are no column maps to load, so return an empty dictionary.
-
-
-
-   .. py:method:: get_all_pages() -> list[str]
-
-      Hard code the page names, which usually are pulled from column rename spreadsheets.
-
-
-
-   .. py:method:: get_file_name(page, **partition)
-
-      Returns file name of given partition and page.
-
-
-
-.. py:class:: Extractor(*args, **kwargs)
-
-   Bases: :py:obj:`pudl.extract.csv.CsvExtractor`
-
-
-   Extractor for VCE RARE Power Dataset.
-
-
-   .. py:attribute:: METADATA
-
-      Instance of metadata object to use with this extractor.
-
-
-   .. py:method:: get_column_map(page, **partition)
-
-      Return empty dictionary, we don't rename these files.
-
-
-
-   .. py:method:: source_filename(page: str, **partition: pudl.extract.extractor.PartitionSelection) -> str
-
-      Produce the CSV file name as it will appear in the archive.
-
-      The files are nested in an additional folder with the year name inside of the
-      zipfile, so we add a prefix folder based on the yearly partition to the source
-      filename.
-
-      :param page: pudl name for the dataset contents, eg "boiler_generator_assn" or
-                   "coal_stocks"
-      :param partition: partition to load. Examples:
-                        {'year': 2009}
-                        {'year_month': '2020-08'}
-
-      :returns: string name of the CSV file
-
-
-
-   .. py:method:: load_source(page: str, **partition: pudl.extract.extractor.PartitionSelection) -> pandas.DataFrame
-
-      Produce the dataframe object for the given partition.
-
-      :param page: pudl name for the dataset contents, eg "boiler_generator_assn" or
-                   "data"
-      :param partition: partition to load. Examples:
-                        {'year': 2009}
-                        {'year_month': '2020-08'}
-
-      :returns: pd.DataFrame instance containing CSV data
-
-
-
-   .. py:method:: process_raw(df: pandas.DataFrame, page: str, **partition: pudl.extract.extractor.PartitionSelection) -> pandas.DataFrame
-
-      Append report year to df to distinguish data from other years.
-
-
-
-   .. py:method:: validate(df: pandas.DataFrame, page: str, **partition: pudl.extract.extractor.PartitionSelection) -> pandas.DataFrame
-
-      Skip this step, as we aren't renaming any columns.
-
-
-
-   .. py:method:: combine(dfs: list[pandas.DataFrame], page: str) -> pandas.DataFrame
-
-      Concatenate dataframes into one, take any special steps for processing final page.
-
-
-
-.. py:data:: raw_vcerare__all_dfs
-
-.. py:function:: raw_vcerare_asset_factory(part: str) -> dagster.AssetsDefinition
-
-   An asset factory for VCE RARE Power Dataset.
-
-
-.. py:data:: raw_vcerare_assets
 
 .. py:function:: raw_vcerare__lat_lon_fips(context) -> pandas.DataFrame
 

@@ -30,6 +30,7 @@ Classes
 .. autoapisummary::
 
    pudl.helpers.TableDiff
+   pudl.helpers.ParquetData
 
 
 Functions
@@ -74,7 +75,6 @@ Functions
    pudl.helpers.cleanstrings_snake
    pudl.helpers.zero_pad_numeric_string
    pudl.helpers.iterate_multivalue_dict
-   pudl.helpers.get_working_dates_by_datasource
    pudl.helpers.dedupe_on_category
    pudl.helpers.dedupe_and_drop_nas
    pudl.helpers.drop_records_with_null_in_column
@@ -98,6 +98,11 @@ Functions
    pudl.helpers.get_parquet_table_polars
    pudl.helpers.get_parquet_table
    pudl.helpers.standardize_phone_column
+   pudl.helpers.persist_table_as_parquet
+   pudl.helpers.lf_from_parquet
+   pudl.helpers.df_from_parquet
+   pudl.helpers.duckdb_relation_from_parquet
+   pudl.helpers.duckdb_extract_zipped_csv
 
 
 Module Contents
@@ -141,7 +146,7 @@ Module Contents
    :param table: Name of the FERC Form 1 DB to search.
    :param field: Name of the column in that table to search.
    :param strdict: A string cleaning dictionary. See
-                   e.g. `pudl.transform.ferc1.FUEL_UNIT_STRINGS`
+                   e.g. :py:const:`pudl.transform.ferc1.FUEL_UNIT_STRINGS`
    :param ferc1_engine: SQL Alchemy DB connection engine for the FERC Form 1 DB.
 
    :returns: Any string found in the searched table + field that was not part of any of
@@ -327,7 +332,7 @@ Module Contents
                    If one of these temporal columns already exists in the dataframe it will not
                    be clobbered by the merge, as the suffix "_temp_for_merge" is added when
                    expanding the datetime column into year, quarter, month, and day. By default,
-                   `date_on` will just include year.
+                   ``date_on`` will just include year.
    :param how: How the dataframes should be merged. See :func:`pandas.DataFrame.merge`.
    :param report_at_start: Whether the data in the dataframe whose report date is not being
                            kept in the merged output (in most cases the less frequently reported dataframe)
@@ -362,7 +367,7 @@ Module Contents
                 frequency aliases.
    :param fill_through_freq: The frequency in which to fill in the data through. For
                              example, if equal to "year" the data will be filled in through the end of
-                             the last reported year for each grouping of `key_cols`. Valid frequencies
+                             the last reported year for each grouping of ``key_cols``. Valid frequencies
                              are only "year", "month", or "day".
 
    :raises ValueError: if ``fill_through_freq`` is not one of "year", "month" or "day".
@@ -432,8 +437,8 @@ Module Contents
 
    Consolidate freeform strings in several dataframe columns.
 
-   This function will consolidate freeform strings found in `columns` into simplified
-   categories, as defined by `stringmaps`. This is useful when a field contains many
+   This function will consolidate freeform strings found in ``columns`` into simplified
+   categories, as defined by ``stringmaps``. This is useful when a field contains many
    different strings that are really meant to represent a finite number of categories,
    e.g. a type of fuel. It can also be used to create simplified categories that apply
    to similar attributes that are reported in various data sources from different
@@ -635,7 +640,7 @@ Module Contents
    so we are keeping those columns as objects and preforming a simple mask for
    the boolean columns.
 
-   The other exception in here is with the `utility_id_eia` column. It is
+   The other exception in here is with the ``utility_id_eia`` column. It is
    often an object column of strings. All of the strings are numbers, so it
    should be possible to convert to :func:`pandas.Int32Dtype` directly, but it
    is requiring us to convert to int first. There will probably be other
@@ -748,11 +753,6 @@ Module Contents
        {'form': 'gas_distribution', 'years': 2020}
 
 
-.. py:function:: get_working_dates_by_datasource(datasource: str) -> pandas.DatetimeIndex
-
-   Get all working dates of a datasource as a DatetimeIndex.
-
-
 .. py:function:: dedupe_on_category(dedup_df: pandas.DataFrame, base_cols: list[str], category_name: str, sorter: list[str]) -> pandas.DataFrame
 
    Deduplicate a df using a sorted category to retain preferred values.
@@ -816,7 +816,7 @@ Module Contents
    dataframe are pulled out to determine the hours in each period based on
    the frequency. The number of hours is used in calculating the capacity
    factor. Then records with capacity factors outside the range specified by
-   `min_cap_fact` and `max_cap_fact` are dropped.
+   ``min_cap_fact`` and ``max_cap_fact`` are dropped.
 
    :param df: table with required inputs for capacity factor (``report_date``,
               ``net_generation_mwh`` and ``capacity_mw``).
@@ -1030,7 +1030,7 @@ Module Contents
                                   Dagster description: If a value is set, the limit is applied to
                                   only that key-value pair. If no value is set, the limit is applied
                                   across all values of that key. If the value is set to a dict with
-                                  `applyLimitPerUniqueValue: true`, the limit will apply to the
+                                  ``applyLimitPerUniqueValue: true``, the limit will apply to the
                                   number of unique values for that key. Note that these limits are
                                   per run, not global.
 
@@ -1137,5 +1137,102 @@ Module Contents
    :param columns: A list of the names of the columns that need to be standardized.
 
    :returns: The modified DataFrame with standardized phone numbers in the same column.
+
+
+.. py:class:: ParquetData(/, **data: Any)
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   Wrap table data offloaded as parquet file(s) on disk.
+
+   Writing data to disk as parquet files enables the use of highly efficient
+   processing/transforms with tools like Polars or duckdb. This class provides
+   helpers for managing paths to parquet data on disk.
+
+
+   .. py:attribute:: table_name
+      :type:  str
+
+
+   .. py:attribute:: partitions
+      :type:  dict[str, Any]
+
+
+   .. py:property:: parquet_directory
+      :type: pathlib.Path
+
+
+      Get path to directory for writing/reading parquet files.
+
+
+   .. py:property:: parquet_path
+      :type: pathlib.Path
+
+
+      Get name of an individual parquet file corresponding to a single partition of data.
+
+
+.. py:function:: persist_table_as_parquet(table_data: pandas.DataFrame | polars.LazyFrame | duckdb.DuckDBPyRelation, table_name: str, partitions: dict = {}, compression: Literal['zstd', 'snappy', 'gzip', 'brotli'] = 'zstd') -> ParquetData
+
+   Write data from DataFrame or LazyFrame to disk as a parquet file.
+
+   Offloading data to disk allows Polars and duckdb to perform highly efficient
+   transforms.
+
+   :param table_data: Data to write to disk as either a Pandas DataFrame, Polars LazyFrame, or duckdb relation.
+   :param table_name: Table name used to construct path to/name of parquet file.
+   :param partitions: Partitions which correspond to the table_data. If passed
+                      ``{'years': 1995}`` then this method will produce a parquet file at the path
+                      ``PudlPaths().parquet_path() / table_name / '1995.parquet'``.
+
+
+.. py:function:: lf_from_parquet(parquet_data: ParquetData, use_all_partitions: bool = False) -> polars.LazyFrame
+
+   Scan parquet file(s) from disk and return Polars LazyFrame.
+
+   :param parquet_data: Points to parquet data on disk.
+   :param use_all_partitions: If true read the entire directory of parquet files.
+                              Otherwise only read data from the partition specified in parquet_data.
+
+
+.. py:function:: df_from_parquet(parquet_data: ParquetData, use_all_partitions: bool = False) -> pandas.DataFrame
+
+   Read data from a set of parquet files and return a pandas DataFrame.
+
+   :param parquet_data: Points to parquet data on disk.
+   :param use_all_partitions: If true read the entire directory of parquet files.
+                              Otherwise only read data from the partition specified in parquet_data.
+
+
+.. py:function:: duckdb_relation_from_parquet(parquet_data: ParquetData, use_all_partitions: bool = False) -> tuple[duckdb.DuckDBPyRelation, duckdb.DuckDBPyConnection]
+
+   Create a duckdb relation to read from parquet files.
+
+   This method is intended to be used as a context manager to keep the duckdb
+   connection open while the relation is in use.
+
+   :param parquet_data: Points to parquet data on disk.
+   :param use_all_partitions: If true read the entire directory of parquet files.
+                              Otherwise only read data from the partition specified in parquet_data.
+
+
+.. py:function:: duckdb_extract_zipped_csv(dataset: str, partitions: dict[str, Any], pages: list[str], datasore, zip_path: pathlib.Path = Path()) -> tuple[str, ParquetData]
+
+   Extract data from zipped CSV page(s) in a data archive.
+
+   A common pattern for raw PUDL data is a set of zipfiles with one zipfile per
+   partition, and one or more CSV files within each zipfile. This function provides
+   a highly efficient way to extract data from archives that conform to this pattern
+   using duckdb. This function is a generator, which will yield a duckdb relation for
+   each CSV file within a zipfile, allowing the caller to perform transforms using
+   the relation before writing to disk with the ``offload_table`` function.
+
+   :param dataset: Name of dataset (required to get archive from datastore).
+   :param partition: Partitions of resource to extract data from.
+   :param pages: List of csv files to extract from archive.
+   :param datastore: Instance of PUDL datastore to get raw data.
+   :param zip_path: Base path within zipfile that points to where CSV files are stored.
+                    If not explicitly set, assume CSV files are at the top level of the zipfile.
 
 

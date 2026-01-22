@@ -15,7 +15,6 @@ Attributes
 .. autoapisummary::
 
    pudl.workspace.resource_cache.logger
-   pudl.workspace.resource_cache.gcs_retry
 
 
 Classes
@@ -25,30 +24,14 @@ Classes
 
    pudl.workspace.resource_cache.PudlResourceKey
    pudl.workspace.resource_cache.AbstractCache
-   pudl.workspace.resource_cache.LocalFileCache
-   pudl.workspace.resource_cache.GoogleCloudStorageCache
+   pudl.workspace.resource_cache.UPathCache
    pudl.workspace.resource_cache.LayeredCache
-
-
-Functions
----------
-
-.. autoapisummary::
-
-   pudl.workspace.resource_cache.extend_gcp_retry_predicate
 
 
 Module Contents
 ---------------
 
 .. py:data:: logger
-
-.. py:function:: extend_gcp_retry_predicate(predicate, *exception_types)
-
-   Extend a GCS predicate function with additional exception_types.
-
-
-.. py:data:: gcs_retry
 
 .. py:class:: PudlResourceKey
 
@@ -133,61 +116,65 @@ Module Contents
 
 
 
-.. py:class:: LocalFileCache(cache_root_dir: pathlib.Path, **kwargs: Any)
+.. py:class:: UPathCache(storage_upath: upath.UPath, **kwargs: Any)
 
    Bases: :py:obj:`AbstractCache`
 
 
-   Simple key-value store mapping PudlResourceKeys to ByteIO contents.
+   Implements file cache using UPath for unified access to multiple storage backends.
+
+   This cache uses universal_pathlib's UPath to provide a unified interface
+   for accessing data stored in S3, GCS, or local filesystems. It handles backend-specific
+   authentication and credential management internally.
+
+   Requires UPath objects with explicit protocols:
+       - s3://bucket-name/path/prefix
+       - gs://bucket-name/path/prefix
+       - file:///local/path
 
 
-   .. py:attribute:: cache_root_dir
+   .. py:attribute:: supported_protocols
+      :type:  set[str]
 
 
-   .. py:method:: _resource_path(resource: PudlResourceKey) -> pathlib.Path
+   .. py:attribute:: _protocol
 
 
-   .. py:method:: get(resource: PudlResourceKey) -> bytes
-
-      Retrieves value associated with a given resource.
+   .. py:attribute:: _storage_options
 
 
-
-   .. py:method:: add(resource: PudlResourceKey, content: bytes)
-
-      Adds (or updates) resource to the cache with given value.
+   .. py:attribute:: _base_path
 
 
+   .. py:method:: __repr__() -> str
 
-   .. py:method:: delete(resource: PudlResourceKey)
-
-      Deletes resource from the cache.
-
-
-
-   .. py:method:: contains(resource: PudlResourceKey) -> bool
-
-      Returns True if resource is present in the cache.
+      Returns string representation of UPathCache.
 
 
 
-.. py:class:: GoogleCloudStorageCache(gcs_path: str, **kwargs: Any)
+   .. py:method:: _setup_credentials() -> dict[str, Any]
 
-   Bases: :py:obj:`AbstractCache`
+      Set up backend-specific credentials and storage options.
 
+      This should be the only place where backend-specific logic is required.
 
-   Implements file cache backed by Google Cloud Storage bucket.
-
-
-   .. py:attribute:: _path_prefix
+      :returns: Dictionary of storage options to pass to UPath
 
 
-   .. py:attribute:: _bucket
+
+   .. py:method:: _resource_path(resource: PudlResourceKey) -> upath.UPath
+
+      Get the UPath for a given resource.
+
+      :param resource: The resource to get the path for
+
+      :returns: UPath object pointing to the resource location
 
 
-   .. py:method:: _blob(resource: PudlResourceKey) -> google.cloud.storage.blob.Blob
 
-      Retrieve Blob object associated with given resource.
+   .. py:method:: is_anonymous() -> bool
+
+      Returns True if the cache is using anonymous access (no credentials).
 
 
 
@@ -195,11 +182,23 @@ Module Contents
 
       Retrieves value associated with given resource.
 
+      :param resource: The resource to retrieve
+
+      :returns: The content of the resource as bytes
+
+      :raises KeyError: if the resource doesn't exist
+      :raises Exception: for other storage backend errors
 
 
-   .. py:method:: add(resource: PudlResourceKey, value: bytes)
 
-      Adds (or updates) resource to the cache with given value.
+   .. py:method:: add(resource: PudlResourceKey, content: bytes)
+
+      Adds (or updates) resource to the cache with given content.
+
+      :param resource: The resource to add
+      :param content: The content to store
+
+      :raises RuntimeError: if cache is read-only or credentials are insufficient
 
 
 
@@ -207,15 +206,23 @@ Module Contents
 
       Deletes resource from the cache.
 
+      :param resource: The resource to delete
+
+      :raises RuntimeError: if cache is read-only or credentials are insufficient
+
 
 
    .. py:method:: contains(resource: PudlResourceKey) -> bool
 
       Returns True if resource is present in the cache.
 
+      :param resource: The resource to check
+
+      :returns: True if the resource exists, False otherwise
 
 
-.. py:class:: LayeredCache(*caches: list[AbstractCache], **kwargs: Any)
+
+.. py:class:: LayeredCache(*caches: AbstractCache, **kwargs: Any)
 
    Bases: :py:obj:`AbstractCache`
 
@@ -254,11 +261,15 @@ Module Contents
 
       Returns content of a given resource.
 
+      When a resource is found in a distant cache layer, it is automatically populated
+      into all closer (higher-priority) cache layers that are writable.  This ensures
+      optimal cache performance for subsequent accesses.
 
 
-   .. py:method:: add(resource: PudlResourceKey, value)
 
-      Adds (or replaces) resource into the cache with given value.
+   .. py:method:: add(resource: PudlResourceKey, content)
+
+      Adds (or replaces) resource into the cache with given content.
 
 
 

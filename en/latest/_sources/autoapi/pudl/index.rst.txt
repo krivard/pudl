@@ -16,6 +16,7 @@ Submodules
    :maxdepth: 1
 
    /autoapi/pudl/__main__/index
+   /autoapi/pudl/_version/index
    /autoapi/pudl/analysis/index
    /autoapi/pudl/convert/index
    /autoapi/pudl/dbt_wrapper/index
@@ -99,6 +100,8 @@ Package Contents
 
 
 .. py:data:: __version__
+   :value: '0.0.0.dev0'
+
 
 .. py:data:: __docformat__
    :value: 'restructuredtext en'

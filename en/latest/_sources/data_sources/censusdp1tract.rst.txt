@@ -17,6 +17,8 @@ Census DP1 -- Profile of General Demographic Characteristics
      - 
    * - PUDL Code
      - ``censusdp1tract``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.4127048 <https://doi.org/10.5281/zenodo.4127048>`__
    * - Issues
      - `Open Census DP1 -- Profile of General Demographic Characteristics issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Acensusdp1tract>`__
 

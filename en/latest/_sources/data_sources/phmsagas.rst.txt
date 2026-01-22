@@ -17,6 +17,8 @@ Pipelines and Hazardous Materials Safety Administration (PHMSA) Annual Natural G
      - 1970-2024
    * - PUDL Code
      - ``phmsagas``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.7683351 <https://doi.org/10.5281/zenodo.7683351>`__
    * - Issues
      - `Open Pipelines and Hazardous Materials Safety Administration (PHMSA) Annual Natural Gas Report issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aphmsagas>`__
 

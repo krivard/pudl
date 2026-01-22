@@ -29,6 +29,7 @@ Classes
    pudl.metadata.descriptions.TableTypeFragments
    pudl.metadata.descriptions.DescriptionMeta
    pudl.metadata.descriptions.ResourceTrait
+   pudl.metadata.descriptions.ResolvedResourceDescription
    pudl.metadata.descriptions.ResourceDescriptionBuilder
    pudl.metadata.descriptions.ResourceNameComponents
 
@@ -39,6 +40,7 @@ Functions
 .. autoapisummary::
 
    pudl.metadata.descriptions.first_non_none
+   pudl.metadata.descriptions.component
 
 
 Module Contents
@@ -145,6 +147,75 @@ Module Contents
    Returns None only if no such argument is found.
 
 
+.. py:class:: ResolvedResourceDescription
+
+   The fully-resolved components of a resource description.
+
+   This class stores the different components of a resource description, as computed by :class:`ResourceDescriptionBuilder`.
+
+   There are six description components:
+
+   * summary
+   * layer
+   * source
+   * primary_key
+   * details
+   * usage_warnings
+
+   Each takes the form of a :class:`ResourceTrait` (or list of :class:`ResourceTrait`, in the case of usage_warnings),
+   which include the description text along with any types/categories extracted along the way.
+
+   This object serves as the input to the resource_description template, which assembles the components into a static text block
+   appropriate for including in a data dictionary, datapackage export, or sqlachemy operation.
+
+
+   .. py:attribute:: resource_id
+      :type:  str
+
+
+   .. py:attribute:: summary
+      :type:  ResourceTrait
+
+
+   .. py:attribute:: layer
+      :type:  ResourceTrait
+
+
+   .. py:attribute:: source
+      :type:  ResourceTrait
+
+
+   .. py:attribute:: primary_key
+      :type:  ResourceTrait
+
+
+   .. py:attribute:: details
+      :type:  ResourceTrait
+
+
+   .. py:attribute:: usage_warnings
+      :type:  list[ResourceTrait]
+
+
+   .. py:method:: summarize() -> str
+
+      Show all computed description components, including type/category information.
+
+      This is suitable for low-overhead previews and debugging.
+
+
+
+   .. py:method:: jinja_render(jinja_environment)
+
+      Render all description components into the full static description text block using the resource_description template.
+
+
+
+.. py:function:: component(fn: collections.abc.Callable[Ellipsis, ResourceTrait | list[ResourceTrait]]) -> collections.abc.Callable[Ellipsis, ResourceTrait | list[ResourceTrait]]
+
+   Decorator for functions which resolve a description component.
+
+
 .. py:class:: ResourceDescriptionBuilder(resource_id: str, settings: dict)
 
    Generate the static text of a resource description from its decomposed parts.
@@ -161,27 +232,28 @@ Module Contents
    in using :class:`ResourceNameComponents` or left blank. See :class:`~pudl.metadata.classes.PudlResourceDescriptor.PudlDescriptionComponents` for
    complete documentation on manually-specifiable keys.
 
-   This class computes and stores "final" description components from all available inputs.
-   There are six final description components:
-
-   * summary
-   * layer
-   * source
-   * primary_key
-   * details
-   * usage_warnings
-
-   Each takes the form of a :class:`ResourceTrait` (or list of :class:`ResourceTrait`, in the case of usage_warnings),
-   which include the description text along with any types/categories extracted along the way.
-
-   This class then serves as the input to the resource_description template, which assembles the components into a static text block
-   appropriate for including in a data dictionary, datapackage export, or sqlachemy operation.
+   This class computes "final" description components from all available inputs, and outputs a :class:`ResolvedResourceDescription` which may be rendered in one or more ways.
 
 
    .. py:attribute:: resource_id
 
 
-   .. py:method:: _create_summary_description(settings, defaults: ResourceNameComponents)
+   .. py:attribute:: defaults
+
+
+   .. py:attribute:: settings
+
+
+   .. py:attribute:: components
+
+
+   .. py:method:: build()
+
+      Compute and store all description components from manually-specified settings and automatic sources.
+
+
+
+   .. py:method:: summary(settings, defaults: ResourceNameComponents) -> ResourceTrait
 
       Compute the summary component (first line) of the resource description.
 
@@ -192,7 +264,7 @@ Module Contents
 
 
 
-   .. py:method:: _create_x_description(attr: str, lookup: dict[str, str], settings: dict, defaults: ResourceNameComponents)
+   .. py:method:: _generic_component(attr: str, lookup: dict[str, str], settings: dict, defaults: ResourceNameComponents)
 
       Compute a generic component of the resource description.
 
@@ -210,19 +282,19 @@ Module Contents
 
 
 
-   .. py:method:: _create_layer_description(settings, defaults)
+   .. py:method:: layer(settings, defaults)
 
       Compute the processing layer component of the resource description.
 
 
 
-   .. py:method:: _create_source_description(settings, defaults)
+   .. py:method:: source(settings, defaults)
 
       Compute the data source component of the resource description.
 
 
 
-   .. py:method:: _create_primary_key_description(settings, defaults)
+   .. py:method:: primary_key(settings, defaults)
 
       Compute the primary key component of the resource description.
 
@@ -237,7 +309,7 @@ Module Contents
 
 
 
-   .. py:method:: _create_details_description(settings, defaults)
+   .. py:method:: details(settings, defaults)
 
       Compute the details component of the resource description.
 
@@ -245,7 +317,7 @@ Module Contents
 
 
 
-   .. py:method:: _assemble_usage_warnings(settings, defaults)
+   .. py:method:: usage_warnings(settings, defaults)
 
       Combine manually-provided warnings and automatically-detected warnings for the requested resource.
 
@@ -253,20 +325,6 @@ Module Contents
 
       * multiple_inputs - for all resources that specify more than one source_id as part of their toplevel metadata (not description.source, that's meant to be more summative)
       * ferc_is_hard - for all resources that include the string "ferc" in the resource id
-
-
-
-   .. py:method:: summarize() -> str
-
-      Show all computed description components, including type/category information.
-
-      This is suitable for low-overhead previews and debugging.
-
-
-
-   .. py:method:: build(jinja_environment)
-
-      Render all description components into the full static description text block using the resource_description template.
 
 
 

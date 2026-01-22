@@ -89,10 +89,14 @@ Submodules
    /autoapi/pudl/transform/ferc/index
    /autoapi/pudl/transform/ferc1/index
    /autoapi/pudl/transform/ferc714/index
+   /autoapi/pudl/transform/ferceqr/index
    /autoapi/pudl/transform/gridpathratoolkit/index
    /autoapi/pudl/transform/nrelatb/index
    /autoapi/pudl/transform/params/index
    /autoapi/pudl/transform/phmsagas/index
+   /autoapi/pudl/transform/rus/index
+   /autoapi/pudl/transform/rus12/index
+   /autoapi/pudl/transform/rus7/index
    /autoapi/pudl/transform/sec10k/index
    /autoapi/pudl/transform/vcerare/index
 

@@ -256,7 +256,7 @@ Module Contents
 
 .. py:class:: PartitionedDataFrame(df: pandas.DataFrame, partition: dict[str, Any])
 
-   This class bundles pandas.DataFrame with partition information.
+   This class bundles :class:`pandas.DataFrame` with partition information.
 
 
    .. py:attribute:: df

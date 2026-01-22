@@ -83,7 +83,7 @@ Module Contents
    Format value for use in raw SQL(ite).
 
    :param x: Value to format.
-   :param identifier: Whether `x` represents an identifier
+   :param identifier: Whether ``x`` represents an identifier
                       (e.g. table, column) name.
 
    .. rubric:: Examples
@@ -296,10 +296,10 @@ Module Contents
    fixable, and ignored codes.
 
    In addition, a :class:`Package` class that has been instantiated using the
-   :meth:`Package.from_resource_ids` method will associate an `Encoder` object with any
+   :meth:`Package.from_resource_ids` method will associate an ``Encoder`` object with any
    column that has a foreign key constraint referring to a coding table (This
    column-level encoder is same as the encoder associated with the referenced table).
-   This `Encoder` can be used to standardize the codes found within the column.
+   This ``Encoder`` can be used to standardize the codes found within the column.
 
    :class:`Field` and :class:`Resource` objects have ``encode()`` methods that will
    use the column-level encoders to recode the original values, either for a single
@@ -394,7 +394,7 @@ Module Contents
       :classmethod:
 
 
-      Check that every every fixed code is also one of the good codes.
+      Check that every fixed code is also one of the good codes.
 
 
 
@@ -423,7 +423,7 @@ Module Contents
       :classmethod:
 
 
-      Construct an Encoder based on `Resource.name` of a coding table.
+      Construct an Encoder based on ``Resource.name`` of a coding table.
 
 
 
@@ -539,6 +539,12 @@ Module Contents
 
 
       Construct from PUDL identifier (`Field.name`).
+
+
+
+   .. py:method:: to_duckdb_dtype() -> duckdb.sqltypes.DuckDBPyType
+
+      Return duckdb data type.
 
 
 
@@ -819,7 +825,7 @@ Module Contents
 
       Implements simple hash method.
 
-      Allows use of `set()` on a list of Contributor
+      Allows use of ``set()`` on a list of Contributor
 
 
 
@@ -853,12 +859,6 @@ Module Contents
 
 
    .. py:attribute:: description
-      :type:  String | None
-      :value: None
-
-
-
-   .. py:attribute:: field_namespace
       :type:  String | None
       :value: None
 
@@ -922,23 +922,15 @@ Module Contents
 
 
 
-   .. py:method:: add_datastore_metadata() -> None
+   .. py:method:: add_datastore_metadata(datastore: pudl.workspace.datastore.Datastore | None = None) -> None
 
       Get source file metadata from the datastore.
 
 
 
-   .. py:method:: to_rst(docs_dir: pydantic.DirectoryPath, source_resources: list, extra_resources: list, output_path: str = None) -> None
+   .. py:method:: to_rst(docs_dir: pydantic.DirectoryPath, source_resources: list[Resource], extra_resources: list[Resource], output_path: str | None = None, datastore: pudl.workspace.datastore.Datastore | None = None) -> None
 
       Output a representation of the data source in RST for documentation.
-
-
-
-   .. py:method:: from_field_namespace(x: str, sources: dict[str, Any] = SOURCES) -> list[DataSource]
-      :classmethod:
-
-
-      Return list of DataSource objects by field namespace.
 
 
 
@@ -973,7 +965,7 @@ Module Contents
 
       Whether to harvest from dataframes based on field names.
 
-      If `False`, the dataframe with the same name is used and the process is limited to
+      If ``False``, the dataframe with the same name is used and the process is limited to
       dropping unwanted fields.
 
 
@@ -1065,7 +1057,7 @@ Module Contents
          Bases: :py:obj:`pandera.pandas.DataFrameModel`
 
 
-         The DF we use to represent code/label/description associations.
+         The DataFrame we use to represent code/label/description associations.
 
 
          .. py:attribute:: code
@@ -1149,7 +1141,7 @@ Module Contents
 
 
       .. py:attribute:: layer_code
-         :type:  Literal['raw', '_core', 'core', 'out', 'test'] | None
+         :type:  Literal['raw', '_core', 'core', 'out', 'out_narrow', 'test'] | None
          :value: None
 
 
@@ -1406,7 +1398,7 @@ Module Contents
    True
 
    Alternatively, aggregate by primary key
-   (the default when :attr:`harvest`. `harvest=True`)
+   (the default when :attr:`harvest`. ``harvest=True``)
    and report aggregation errors.
 
    >>> df, report = resource.harvest_dfs(dfs)
@@ -1437,7 +1429,7 @@ Module Contents
    Name: x, dtype: object
 
    Limit harvesting to the input dataframe of the same name
-   by setting :attr:`harvest`. `harvest=False`.
+   by setting :attr:`harvest`. ``harvest=False``.
 
    >>> resource.harvest.harvest = False
    >>> df, _ = resource.harvest_dfs(dfs, aggregate_kwargs={'raised': False})
@@ -1450,8 +1442,8 @@ Module Contents
    a    2  2
 
    Harvesting can also handle conversion to longer time periods.
-   Period harvesting requires primary key fields with a `datetime` data type,
-   except for `year` fields which can be integer.
+   Period harvesting requires primary key fields with a ``datetime`` data type,
+   except for ``year`` fields which can be integer.
 
    >>> fields = [{'name': 'report_year', 'type': 'year', 'description': 'Report year'}]
    >>> resource = Resource(**{
@@ -1554,13 +1546,13 @@ Module Contents
 
 
    .. py:attribute:: field_namespace
-      :type:  Literal['censusdp1tract', 'eia', 'eiaaeo', 'eiaapi', 'epacems', 'ferc1', 'ferc714', 'glue', 'gridpathratoolkit', 'ppe', 'pudl', 'nrelatb', 'vcerare', 'phmsagas', 'sec'] | None
+      :type:  Literal['censusdp1tract', 'eia', 'eiaaeo', 'eiaapi', 'epacems', 'ferc1', 'ferc714', 'ferceqr', 'glue', 'gridpathratoolkit', 'ppe', 'pudl', 'nrelatb', 'vcerare', 'phmsagas', 'sec', 'rus'] | None
       :value: None
 
 
 
    .. py:attribute:: etl_group
-      :type:  Literal['censusdp1tract', 'eia176', 'eia860', 'eia861', 'eia861_disabled', 'eia923', 'eia930', 'eiaaeo', 'entity_eia', 'epacems', 'ferc1', 'ferc1_disabled', 'ferc714', 'glue', 'gridpathratoolkit', 'outputs', 'static_ferc1', 'static_eia', 'static_eia_disabled', 'eiaapi', 'state_demand', 'static_pudl', 'service_territories', 'nrelatb', 'vcerare', 'phmsagas', 'sec10k'] | None
+      :type:  Literal['censusdp1tract', 'eia176', 'eia860', 'eia861', 'eia861_disabled', 'eia923', 'eia930', 'eiaaeo', 'entity_eia', 'epacems', 'ferc1', 'ferc1_disabled', 'ferc714', 'ferceqr', 'glue', 'gridpathratoolkit', 'outputs', 'static_ferc1', 'static_eia', 'static_eia_disabled', 'eiaapi', 'state_demand', 'static_pudl', 'service_territories', 'nrelatb', 'vcerare', 'phmsagas', 'sec10k', 'rus7'] | None
       :value: None
 
 
@@ -1606,19 +1598,19 @@ Module Contents
 
       Get a Resource-shaped dict from a PudlResourceDescriptor.
 
-      * `schema.fields`
+      * ``schema.fields``
 
         * Field names are expanded (:meth:`Field.from_id`).
         * Field attributes are replaced with any specific to the
-          `resource.group` and `field.name`.
+          ``resource.group`` and ``field.name``.
 
-      * `sources`: Source ids are expanded (:meth:`Source.from_id`).
-      * `licenses`: License ids are expanded (:meth:`License.from_id`).
-      * `contributors`: Contributor ids are fetched by source ids,
+      * ``sources``: Source ids are expanded (:meth:`Source.from_id`).
+      * ``licenses``: License ids are expanded (:meth:`License.from_id`).
+      * ``contributors``: Contributor ids are fetched by source ids,
         then expanded (:meth:`Contributor.from_id`).
-      * `keywords`: Keywords are fetched by source ids.
-      * `schema.foreign_keys`: Foreign keys are fetched by resource name.
-      * `description`: Full description text block is rendered from its component parts.
+      * ``keywords``: Keywords are fetched by source ids.
+      * ``schema.foreign_keys``: Foreign keys are fetched by resource name.
+      * ``description``: Full description text block is rendered from its component parts.
 
 
 
@@ -1660,6 +1652,12 @@ Module Contents
 
 
 
+   .. py:method:: to_duckdb_dtypes() -> dict[str, duckdb.sqltypes.DuckDBPyType]
+
+      Return Polars data type of each field by field name.
+
+
+
    .. py:method:: to_polars_dtypes() -> dict[str, polars.DataType]
 
       Return Polars data type of each field by field name.
@@ -1687,7 +1685,7 @@ Module Contents
       :raises ValueError: Multiple field names match primary key field.
 
       :returns: The name matching each primary key field (if any) as a :class:`dict`,
-                or `None` if not all primary key fields have a match.
+                or ``None`` if not all primary key fields have a match.
 
       .. rubric:: Examples
 
@@ -1730,8 +1728,8 @@ Module Contents
       * All columns are cast to their specified pandas dtypes.
       * Primary key columns must be present and non-null.
       * Periodic primary key fields are snapped to the start of the desired period.
-      * If the primary key fields could not be matched to columns in `df`
-        (:meth:`match_primary_key`) or if `df=None`, an empty dataframe is returned.
+      * If the primary key fields could not be matched to columns in ``df``
+        (:meth:`match_primary_key`) or if ``df=None``, an empty dataframe is returned.
 
       :param df: Dataframe to format.
       :param kwargs: Arguments to :meth:`Field.to_pandas_dtypes`.
@@ -1752,38 +1750,38 @@ Module Contents
 
       The dataframe is grouped by primary key fields
       and aggregated with the aggregate function of each field
-      (:attr:`schema_`. `fields[*].harvest.aggregate`).
+      (:attr:`schema_`. ``fields[*].harvest.aggregate``).
 
       The report is formatted as follows:
 
-      * `valid` (bool): Whether resource is valid.
-      * `stats` (dict): Error statistics for resource fields.
-      * `fields` (dict):
+      * ``valid`` (bool): Whether resource is valid.
+      * ``stats`` (dict): Error statistics for resource fields.
+      * ``fields`` (dict):
 
-        * `<field_name>` (str)
+        * ``<field_name>`` (str)
 
-          * `valid` (bool): Whether field is valid.
-          * `stats` (dict): Error statistics for field groups.
-          * `errors` (:class:`pandas.Series`): Error values indexed by primary key.
+          * ``valid`` (bool): Whether field is valid.
+          * ``stats`` (dict): Error statistics for field groups.
+          * ``errors`` (:class:`pandas.Series`): Error values indexed by primary key.
 
         * ...
 
-      Each `stats` (dict) contains the following:
+      Each ``stats`` (dict) contains the following:
 
-      * `all` (int): Number of entities (field or field group).
-      * `invalid` (int): Invalid number of entities.
-      * `tolerance` (float): Fraction of invalid entities below which
+      * ``all`` (int): Number of entities (field or field group).
+      * ``invalid`` (int): Invalid number of entities.
+      * ``tolerance`` (float): Fraction of invalid entities below which
         parent entity is considered valid.
-      * `actual` (float): Actual fraction of invalid entities.
+      * ``actual`` (float): Actual fraction of invalid entities.
 
       :param df: Dataframe to aggregate. It is assumed to have column names and
                  data types matching the resource fields.
       :param raised: Whether aggregation errors are raised or
                      replaced with :obj:`np.nan` and returned in an error report.
-      :param error: A function with signature `f(x, e) -> Any`,
-                    where `x` are the original field values as a :class:`pandas.Series`
-                    and `e` is the original error.
-                    If provided, the returned value is reported instead of `e`.
+      :param error: A function with signature ``f(x, e) -> Any``,
+                    where ``x`` are the original field values as a :class:`pandas.Series`
+                    and ``e`` is the original error.
+                    If provided, the returned value is reported instead of ``e``.
 
       :raises ValueError: A primary key is required for aggregating.
 
@@ -1809,24 +1807,24 @@ Module Contents
 
       Harvest from named dataframes.
 
-      For standard resources (:attr:`harvest`. `harvest=False`), the columns
+      For standard resources (:attr:`harvest`. ``harvest=False``), the columns
       matching all primary key fields and any data fields are extracted from
       the input dataframe of the same name.
 
-      For harvested resources (:attr:`harvest`. `harvest=True`), the columns
+      For harvested resources (:attr:`harvest`. ``harvest=True``), the columns
       matching all primary key fields and any data fields are extracted from
       each compatible input dataframe, and concatenated into a single
       dataframe.  Periodic key fields (e.g. 'report_month') are matched to any
       column of the same name with an equal or smaller period (e.g.
       'report_day') and snapped to the start of the desired period.
 
-      If `aggregate=False`, rows are indexed by the name of the input dataframe.
-      If `aggregate=True`, rows are indexed by primary key fields.
+      If ``aggregate=False``, rows are indexed by the name of the input dataframe.
+      If ``aggregate=True``, rows are indexed by primary key fields.
 
       :param dfs: Dataframes to harvest.
       :param aggregate: Whether to aggregate the harvested rows by their primary key.
-                        By default, this is `True` if `self.harvest.harvest=True` and
-                        `False` otherwise.
+                        By default, this is ``True`` if ``self.harvest.harvest=True`` and
+                        ``False`` otherwise.
       :param aggregate_kwargs: Optional arguments to :meth:`aggregate_df`.
       :param format_kwargs: Optional arguments to :meth:`format_df`.
 

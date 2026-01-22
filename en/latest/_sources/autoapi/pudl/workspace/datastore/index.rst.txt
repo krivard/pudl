@@ -78,13 +78,13 @@ Module Contents
    .. py:attribute:: doi
 
 
+   .. py:method:: _get_resource_metadata(name: str) -> dict
+
+
    .. py:method:: get_resource_path(name: str) -> str
 
       Returns zenodo url that holds contents of given named resource.
 
-
-
-   .. py:method:: _get_resource_metadata(name: str) -> dict
 
 
    .. py:method:: get_download_size() -> int
@@ -148,7 +148,7 @@ Module Contents
 
 
 
-.. py:class:: ZenodoDoiSettings(_case_sensitive: bool | None = None, _nested_model_default_partial_update: bool | None = None, _env_prefix: str | None = None, _env_file: pydantic_settings.sources.DotenvType | None = ENV_FILE_SENTINEL, _env_file_encoding: str | None = None, _env_ignore_empty: bool | None = None, _env_nested_delimiter: str | None = None, _env_nested_max_split: int | None = None, _env_parse_none_str: str | None = None, _env_parse_enums: bool | None = None, _cli_prog_name: str | None = None, _cli_parse_args: bool | list[str] | tuple[str, Ellipsis] | None = None, _cli_settings_source: pydantic_settings.sources.CliSettingsSource[Any] | None = None, _cli_parse_none_str: str | None = None, _cli_hide_none_type: bool | None = None, _cli_avoid_json: bool | None = None, _cli_enforce_required: bool | None = None, _cli_use_class_docs_for_groups: bool | None = None, _cli_exit_on_error: bool | None = None, _cli_prefix: str | None = None, _cli_flag_prefix_char: str | None = None, _cli_implicit_flags: bool | None = None, _cli_ignore_unknown_args: bool | None = None, _cli_kebab_case: bool | Literal['all', 'no_enums'] | None = None, _cli_shortcuts: collections.abc.Mapping[str, str | list[str]] | None = None, _secrets_dir: pydantic_settings.sources.PathType | None = None, **values: Any)
+.. py:class:: ZenodoDoiSettings(**data: Any)
 
    Bases: :py:obj:`pydantic_settings.BaseSettings`
 
@@ -158,152 +158,110 @@ Module Contents
 
    .. py:attribute:: censusdp1tract
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.4127049'
-
 
 
    .. py:attribute:: censuspep
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.15315316'
-
 
 
    .. py:attribute:: eia176
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17563679'
-
 
 
    .. py:attribute:: eia191
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.10607837'
-
 
 
    .. py:attribute:: eia757a
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.10607839'
-
 
 
    .. py:attribute:: eia860
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17091669'
-
 
 
    .. py:attribute:: eia860m
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17725393'
-
 
 
    .. py:attribute:: eia861
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17293555'
-
 
 
    .. py:attribute:: eia923
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17440792'
-
 
 
    .. py:attribute:: eia930
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17500936'
-
-
-
-   .. py:attribute:: eiawater
-      :type:  ZenodoDoi
-      :value: '10.5281/zenodo.10806016'
-
 
 
    .. py:attribute:: eiaaeo
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.15622378'
-
 
 
    .. py:attribute:: eiaapi
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17500949'
-
 
 
    .. py:attribute:: epacamd_eia
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17582121'
-
 
 
    .. py:attribute:: epacems
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17500930'
-
 
 
    .. py:attribute:: ferc1
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17563678'
-
 
 
    .. py:attribute:: ferc2
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17223540'
-
 
 
    .. py:attribute:: ferc6
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17119798'
-
 
 
    .. py:attribute:: ferc60
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17223513'
-
 
 
    .. py:attribute:: ferc714
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.16676145'
 
+
+   .. py:attribute:: ferceqr
+      :type:  ZenodoDoi
 
 
    .. py:attribute:: gridpathratoolkit
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.10892394'
-
 
 
    .. py:attribute:: nrelatb
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.12658647'
-
 
 
    .. py:attribute:: phmsagas
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.17076661'
 
+
+   .. py:attribute:: rus7
+      :type:  ZenodoDoi
+
+
+   .. py:attribute:: rus12
+      :type:  ZenodoDoi
 
 
    .. py:attribute:: sec10k
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.15161694'
-
 
 
    .. py:attribute:: vcerare
       :type:  ZenodoDoi
-      :value: '10.5281/zenodo.15166129'
-
 
 
    .. py:attribute:: model_config
@@ -311,7 +269,19 @@ Module Contents
       Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict].
 
 
-.. py:class:: ZenodoFetcher(zenodo_dois: ZenodoDoiSettings | None = None, timeout: float = 15.0)
+   .. py:method:: from_yaml(path: str | pathlib.Path) -> ZenodoDoiSettings
+      :classmethod:
+
+
+      Create a ZenodoDoiSettings instance from a YAML file path.
+
+      :param path: Path to a YAML file.
+
+      :returns: A ZenodoDoiSettings object with DOIs loaded from the YAML file.
+
+
+
+.. py:class:: ZenodoFetcher(zenodo_dois: ZenodoDoiSettings | None = None, timeout: float = 100.0)
 
    API for fetching datapackage descriptors and resource contents from zenodo.
 
@@ -364,7 +334,7 @@ Module Contents
 
 
 
-.. py:class:: Datastore(local_cache_path: pathlib.Path | None = None, gcs_cache_path: str | None = None, timeout: float = 15.0)
+.. py:class:: Datastore(local_cache_path: str | pathlib.Path | upath.UPath | None = None, cloud_cache_path: str | upath.UPath | None = 's3://pudl.catalyst.coop/zenodo', timeout: float = 15.0)
 
    Handle connections and downloading of Zenodo Source archives.
 
@@ -452,7 +422,7 @@ Module Contents
    Delete invalid entries from cache.
 
 
-.. py:function:: fetch_resources(dstore: Datastore, datasets: list[str], partition: dict[str, int | str], gcs_cache_path: str, bypass_local_cache: bool) -> None
+.. py:function:: fetch_resources(dstore: Datastore, datasets: list[str], partition: dict[str, int | str], cloud_cache_path: str, bypass_local_cache: bool) -> None
 
    Retrieve all matching resources and store them in the cache.
 
@@ -465,7 +435,7 @@ Module Contents
    into: {k1:v1, k2:v2, k3:v3, ...}
 
 
-.. py:function:: pudl_datastore(dataset: list[str], validate: bool, list_partitions: bool, partition: dict[str, int | str], gcs_cache_path: str, bypass_local_cache: bool, logfile: pathlib.Path, loglevel: str)
+.. py:function:: pudl_datastore(dataset: list[str], validate: bool, list_partitions: bool, partition: dict[str, int | str], cloud_cache_path: str, bypass_local_cache: bool, logfile: pathlib.Path, loglevel: str)
 
    Manage the raw data inputs to the PUDL data processing pipeline.
 

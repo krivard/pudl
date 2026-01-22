@@ -44,10 +44,13 @@ Submodules
    /autoapi/pudl/extract/ferc6/index
    /autoapi/pudl/extract/ferc60/index
    /autoapi/pudl/extract/ferc714/index
+   /autoapi/pudl/extract/ferceqr/index
    /autoapi/pudl/extract/gridpathratoolkit/index
    /autoapi/pudl/extract/nrelatb/index
    /autoapi/pudl/extract/parquet/index
    /autoapi/pudl/extract/phmsagas/index
+   /autoapi/pudl/extract/rus12/index
+   /autoapi/pudl/extract/rus7/index
    /autoapi/pudl/extract/sec10k/index
    /autoapi/pudl/extract/vcerare/index
    /autoapi/pudl/extract/xbrl/index

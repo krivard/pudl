@@ -17,6 +17,8 @@ U.S. Securities and Exchange Commission (SEC) Form 10-K
      - 1993-2023
    * - PUDL Code
      - ``sec10k``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.15161693 <https://doi.org/10.5281/zenodo.15161693>`__
    * - Issues
      - `Open U.S. Securities and Exchange Commission (SEC) Form 10-K issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Asec10k>`__
 

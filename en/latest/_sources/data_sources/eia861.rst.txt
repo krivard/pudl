@@ -17,6 +17,8 @@ EIA Form 861 -- Annual Electric Power Industry Report
      - 2001-2024
    * - PUDL Code
      - ``eia861``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.4127028 <https://doi.org/10.5281/zenodo.4127028>`__
    * - Issues
      - `Open EIA Form 861 -- Annual Electric Power Industry Report issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aeia861>`__
 
@@ -217,6 +219,8 @@ we recommend reading the Form Instructions from different years, linked above.
 Notable Irregularities
 ^^^^^^^^^^^^^^^^^^^^^^
 
+
+.. _eia861-notable-irregularities:
 
 Non-unique utility IDs
 ----------------------

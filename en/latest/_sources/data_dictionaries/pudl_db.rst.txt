@@ -2282,7 +2282,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Annual time series of counties in balancing authority service territories.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 861 -- Annual Electric Power Industry Report
@@ -2380,7 +2380,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Annual time series of counties in utility service territories.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 861 -- Annual Electric Power Industry Report
@@ -2504,6 +2504,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -2522,6 +2524,15 @@ This table provides better coverage of the entire fleet of generators than the
 associated with a generator. This complicates the heat rate calculation, since the
 associations between individual boilers and generators are incomplete and can be
 complex.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -2659,6 +2670,8 @@ Usage Warnings
 
 * Time of fuel deliveries is not necessarily connected with time of fuel consumption.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -2683,6 +2696,15 @@ Northeastern US reports essentially no fine-grained data about its natural gas p
 
 Additional data which we haven't yet integrated is available in a similar format from
 2002-2008 via the EIA-423, and going back as far as 1972 from the FERC-423.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -2876,6 +2898,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -2892,6 +2916,15 @@ Whenever possible, we use this generator-level net generation to estimate the he
 of generation units and the marginal cost of electricity on a per-generator basis, but
 those calculations depend on plant-level fuel costs and sometimes uncertain or
 incomplete boiler-generator associations.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3006,6 +3039,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -3030,6 +3065,16 @@ The table makes a distinction between all fuel consumed and fuel consumed for
 electricity generation because some units are also combined heat and power (CHP) units,
 and also provide high temperature process heat at the expense of net electricity
 generation.
+
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3165,6 +3210,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -3183,6 +3230,15 @@ This table provides better coverage of the entire fleet of generators than the
 associated with a generator. This complicates the heat rate calculation, since the
 associations between individual boilers and generators are incomplete and can be
 complex.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3320,6 +3376,8 @@ Usage Warnings
 
 * Time of fuel deliveries is not necessarily connected with time of fuel consumption.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -3344,6 +3402,15 @@ Northeastern US reports essentially no fine-grained data about its natural gas p
 
 Additional data which we haven't yet integrated is available in a similar format from
 2002-2008 via the EIA-423, and going back as far as 1972 from the FERC-423.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3492,6 +3559,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -3508,6 +3577,15 @@ Whenever possible, we use this generator-level net generation to estimate the he
 of generation units and the marginal cost of electricity on a per-generator basis, but
 those calculations depend on plant-level fuel costs and sometimes uncertain or
 incomplete boiler-generator associations.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3626,6 +3704,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -3637,7 +3717,38 @@ Additional Details
 
 Based on allocating net electricity generation and fuel consumption reported in the EIA-923 generation and generation_fuel tables to individual generators.
 
-This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+The net generation and fuel consumption allocation
+method PUDL employs begins with the following context of the originally reported
+EIA-860 and EIA-923 data:
+
+* The :ref:`core_eia923__monthly_generation_fuel` table is the authoritative source of
+  information about how much generation and fuel consumption is attributable to an
+  entire plant. This table has the most complete data coverage, but it is not the most
+  granular data reported.
+* The :ref:`core_eia923__monthly_generation` table contains the most granular net
+  generation data. It is reported at the ``plant_id_eia``, ``generator_id`` and
+  ``report_date`` level. This table includes only ~40% of the total MWhs reported in
+  the :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia923__monthly_boiler_fuel` table contains the most granular fuel
+  consumption data.  It is reported at the boiler/prime mover/energy source level. This
+  table includes only ~40% of the total MMBTUs reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia860__scd_generators` table provides an exhaustive list of all
+  generators whose generation is being reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+
+
+
+In this table, PUDL aggregates the net generation and fuel consumption that has been allocated to the ``generator_id``/``energy_source_code``/``prime_mover_code`` level in the:ref:`out_eia923__monthly_generation_fuel_by_generator_energy_source` to the generator level.This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3738,7 +3849,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Monthly time series of of estimated net generation and fuel consumption associated with each combination of generator, energy source, and prime mover.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 923 -- Power Plant Operations Report (Schedule 3)
@@ -3768,9 +3879,31 @@ Usage Warnings
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-First, the net electricity generation and fuel consumption reported in the EIA-923 generation fuel are allocated to individual generators. Then, these allocations are aggregated to unique generator, prime mover, and energy source code combinations.
+The net generation and fuel consumption allocation
+method PUDL employs begins with the following context of the originally reported
+EIA-860 and EIA-923 data:
 
-This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+* The :ref:`core_eia923__monthly_generation_fuel` table is the authoritative source of
+  information about how much generation and fuel consumption is attributable to an
+  entire plant. This table has the most complete data coverage, but it is not the most
+  granular data reported.
+* The :ref:`core_eia923__monthly_generation` table contains the most granular net
+  generation data. It is reported at the ``plant_id_eia``, ``generator_id`` and
+  ``report_date`` level. This table includes only ~40% of the total MWhs reported in
+  the :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia923__monthly_boiler_fuel` table contains the most granular fuel
+  consumption data.  It is reported at the boiler/prime mover/energy source level. This
+  table includes only ~40% of the total MMBTUs reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia860__scd_generators` table provides an exhaustive list of all
+  generators whose generation is being reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+
+
+
+In this table, PUDL has allocated the net electricity generation and fuel consumption from :ref:`core_eia923__monthly_generation_fuel` to the ``generator_id``/``energy_source_code``/``prime_mover_code`` level.
+
+The allocation process entails generating a fraction for each record based on the net generation in the :ref:`core_eia923__monthly_generation` table and the capacity from the :ref:`core_eia860__scd_generators` table. This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -3879,6 +4012,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -3903,6 +4038,16 @@ The table makes a distinction between all fuel consumed and fuel consumed for
 electricity generation because some units are also combined heat and power (CHP) units,
 and also provide high temperature process heat at the expense of net electricity
 generation.
+
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4035,6 +4180,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -4053,6 +4200,15 @@ This table provides better coverage of the entire fleet of generators than the
 associated with a generator. This complicates the heat rate calculation, since the
 associations between individual boilers and generators are incomplete and can be
 complex.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4190,6 +4346,8 @@ Usage Warnings
 
 * Time of fuel deliveries is not necessarily connected with time of fuel consumption.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -4214,6 +4372,15 @@ Northeastern US reports essentially no fine-grained data about its natural gas p
 
 Additional data which we haven't yet integrated is available in a similar format from
 2002-2008 via the EIA-423, and going back as far as 1972 from the FERC-423.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4362,6 +4529,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -4378,6 +4547,15 @@ Whenever possible, we use this generator-level net generation to estimate the he
 of generation units and the marginal cost of electricity on a per-generator basis, but
 those calculations depend on plant-level fuel costs and sometimes uncertain or
 incomplete boiler-generator associations.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4496,6 +4674,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -4507,7 +4687,38 @@ Additional Details
 
 Based on allocating net electricity generation and fuel consumption reported in the EIA-923 generation and generation_fuel tables to individual generators.
 
-This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+The net generation and fuel consumption allocation
+method PUDL employs begins with the following context of the originally reported
+EIA-860 and EIA-923 data:
+
+* The :ref:`core_eia923__monthly_generation_fuel` table is the authoritative source of
+  information about how much generation and fuel consumption is attributable to an
+  entire plant. This table has the most complete data coverage, but it is not the most
+  granular data reported.
+* The :ref:`core_eia923__monthly_generation` table contains the most granular net
+  generation data. It is reported at the ``plant_id_eia``, ``generator_id`` and
+  ``report_date`` level. This table includes only ~40% of the total MWhs reported in
+  the :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia923__monthly_boiler_fuel` table contains the most granular fuel
+  consumption data.  It is reported at the boiler/prime mover/energy source level. This
+  table includes only ~40% of the total MMBTUs reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia860__scd_generators` table provides an exhaustive list of all
+  generators whose generation is being reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+
+
+
+In this table, PUDL aggregates the net generation and fuel consumption that has been allocated to the ``generator_id``/``energy_source_code``/``prime_mover_code`` level in the:ref:`out_eia923__yearly_generation_fuel_by_generator_energy_source` to the generator level.This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4608,7 +4819,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Annual time series of of estimated net generation and fuel consumption associated with each combination of generator, energy source, and prime mover.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 923 -- Power Plant Operations Report (Schedule 3)
@@ -4638,9 +4849,31 @@ Usage Warnings
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-First, the net electricity generation and fuel consumption reported in the EIA-923 generation fuel are allocated to individual generators. Then, these allocations are aggregated to unique generator, prime mover, and energy source code combinations.
+The net generation and fuel consumption allocation
+method PUDL employs begins with the following context of the originally reported
+EIA-860 and EIA-923 data:
 
-This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+* The :ref:`core_eia923__monthly_generation_fuel` table is the authoritative source of
+  information about how much generation and fuel consumption is attributable to an
+  entire plant. This table has the most complete data coverage, but it is not the most
+  granular data reported.
+* The :ref:`core_eia923__monthly_generation` table contains the most granular net
+  generation data. It is reported at the ``plant_id_eia``, ``generator_id`` and
+  ``report_date`` level. This table includes only ~40% of the total MWhs reported in
+  the :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia923__monthly_boiler_fuel` table contains the most granular fuel
+  consumption data.  It is reported at the boiler/prime mover/energy source level. This
+  table includes only ~40% of the total MMBTUs reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia860__scd_generators` table provides an exhaustive list of all
+  generators whose generation is being reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+
+
+
+In this table, PUDL has allocated the net electricity generation and fuel consumption from :ref:`core_eia923__monthly_generation_fuel` to the ``generator_id``/``energy_source_code``/``prime_mover_code`` level.
+
+The allocation process entails generating a fraction for each record based on the net generation in the :ref:`core_eia923__monthly_generation` table and the capacity from the :ref:`core_eia860__scd_generators` table. This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4732,7 +4965,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Annual time series of of estimated net generation and fuel consumption for each generator, associated with each combination of generator, energy source, prime mover, and owner.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 923 -- Power Plant Operations Report (Schedule 3)
@@ -4751,6 +4984,8 @@ Usage Warnings
 
 * Date column arbitrarily uses the first of the month.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -4760,9 +4995,40 @@ Usage Warnings
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-First, the net electricity generation and fuel consumption reported in the EIA-923 generation fuel are allocated to individual generators. Then, these allocations are aggregated to unique generator, prime mover, energy source code, and owner combinations. Note that the utility_id_eia in this table refers to the OWNER of the generator, not the operator.
+The net generation and fuel consumption allocation
+method PUDL employs begins with the following context of the originally reported
+EIA-860 and EIA-923 data:
+
+* The :ref:`core_eia923__monthly_generation_fuel` table is the authoritative source of
+  information about how much generation and fuel consumption is attributable to an
+  entire plant. This table has the most complete data coverage, but it is not the most
+  granular data reported.
+* The :ref:`core_eia923__monthly_generation` table contains the most granular net
+  generation data. It is reported at the ``plant_id_eia``, ``generator_id`` and
+  ``report_date`` level. This table includes only ~40% of the total MWhs reported in
+  the :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia923__monthly_boiler_fuel` table contains the most granular fuel
+  consumption data.  It is reported at the boiler/prime mover/energy source level. This
+  table includes only ~40% of the total MMBTUs reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+* The :ref:`core_eia860__scd_generators` table provides an exhaustive list of all
+  generators whose generation is being reported in the
+  :ref:`core_eia923__monthly_generation_fuel` table.
+
+
+
+In this table, PUDL has scaled the net electricity generation and fuel consumption from :ref:`core_eia923__monthly_generation_fuel` by ownership from :ref:`out_eia860__yearly_ownership`. Note that the utility_id_eia in this table refers to the OWNER of the generator, not the operator.
 
 This process does not distinguish between primary and secondary energy_sources for generators. Net generation is allocated equally between energy source codes, so if a plant has multiple generators with the same prime_mover_code but different energy source codes the core_eia923__monthly_generation_fuel records will be associated similarly between these two generators. Allocated net generation will still be proportional to each generator's net generation or capacity.
+
+This table inherits canonicalized values for generators and plants.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -4883,6 +5149,8 @@ Usage Warnings
 
 * A small number of respondents only report annual fuel consumption, and all of it is reported in December.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 
 
 
@@ -4907,6 +5175,16 @@ The table makes a distinction between all fuel consumed and fuel consumed for
 electricity generation because some units are also combined heat and power (CHP) units,
 and also provide high temperature process heat at the expense of net electricity
 generation.
+
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -5022,7 +5300,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of aggregated balancing authority demand by EIA region, interconnect, and continental US.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 930 -- Hourly and Daily Balancing Authority Operations Report
@@ -5123,7 +5401,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of balancing authority net generation, interchange, and demand with imputed demand.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 930 -- Hourly and Daily Balancing Authority Operations Report
@@ -5257,7 +5535,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of balancing authority subregion demand with imputed demand.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA Form 930 -- Hourly and Daily Balancing Authority Operations Report
@@ -5383,6 +5661,8 @@ Usage Warnings
 
 * Not all columns are originally reported in or calculable from the input tables. Expect nulls.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -5392,9 +5672,22 @@ Usage Warnings
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-These calculations are based on
-the allocation of net generation reported on the basis of plant, prime mover and energy
-source to individual generators. Heat rates by generator-month are estimated by using
+This table includes all monthly attributes
+for all generators reported to EIA-860 and EIA-923.
+
+To provide a complete picture of generator data, this table compiles data from many
+different EIA tables, including directly reported, imputed and calculated columns.
+We suggest using this table if you want to explore monthly attributes about generators
+and would rather use a more complete and denormalized table. If you are more interested
+in the originally reported values, we recommend searching for core_eia with the column
+you are most interested in.
+
+The calculations of capacity factor, heat rate, fuel cost per MMBTU and fuel cost per MWh
+are based on the allocation of net generation reported on the basis of plant, prime mover
+and energy source to individual generators - which comes from this table:
+:ref:`out_eia923__monthly_generation_fuel_by_generator`.
+
+Heat rates by generator-monthly are estimated by using
 allocated estimates for per-generator net generation and fuel consumption as well as the
 :ref:`core_eia923__monthly_boiler_fuel` table, which reports fuel consumed by boiler.
 Heat rates are necessary to estimate the amount of fuel consumed by a generation unit,
@@ -5404,6 +5697,15 @@ Plant specific fuel prices are taken from the
 :ref:`core_eia923__monthly_fuel_receipts_costs` table, which only has ~70% coverage,
 leading to some generators with heat rate estimates still lacking fuel cost
 estimates.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -5804,7 +6106,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Annual Association table providing connections between plant parts (identified as ``record_id_eia``) and  'plant_gen' records (identified as ``record_id_eia_plant_gen``) from the :ref:`out_eia__yearly_plant_parts` table.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   EIA -- Mix of multiple EIA Forms
@@ -5962,7 +6264,25 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This table inherits canonicalized values for boilers, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -6112,7 +6432,7 @@ Columns
   * - longitude
     - number
     - Longitude of the plant's location, in degrees.
-  * - max_steam_flow_1000_lbs_per_hour
+  * - max_steam_flow_lbs_per_hour
     - number
     - Maximum continuous steam flow at 100 percent load.
   * - mercury_control_existing_strategy_1
@@ -6367,6 +6687,8 @@ Usage Warnings
 
 * Not all columns are originally reported in or calculable from the input tables. Expect nulls.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -6376,9 +6698,22 @@ Usage Warnings
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-These calculations are based on
-the allocation of net generation reported on the basis of plant, prime mover and energy
-source to individual generators. Heat rates by generator-month are estimated by using
+This table includes all yearly attributes
+for all generators reported to EIA-860 and EIA-923.
+
+To provide a complete picture of generator data, this table compiles data from many
+different EIA tables, including directly reported, imputed and calculated columns.
+We suggest using this table if you want to explore yearly attributes about generators
+and would rather use a more complete and denormalized table. If you are more interested
+in the originally reported values, we recommend searching for core_eia with the column
+you are most interested in.
+
+The calculations of capacity factor, heat rate, fuel cost per MMBTU and fuel cost per MWh
+are based on the allocation of net generation reported on the basis of plant, prime mover
+and energy source to individual generators - which comes from this table:
+:ref:`out_eia923__yearly_generation_fuel_by_generator`.
+
+Heat rates by generator-yearly are estimated by using
 allocated estimates for per-generator net generation and fuel consumption as well as the
 :ref:`core_eia923__monthly_boiler_fuel` table, which reports fuel consumed by boiler.
 Heat rates are necessary to estimate the amount of fuel consumed by a generation unit,
@@ -6388,6 +6723,15 @@ Plant specific fuel prices are taken from the
 :ref:`core_eia923__monthly_fuel_receipts_costs` table, which only has ~70% coverage,
 leading to some generators with heat rate estimates still lacking fuel cost
 estimates.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -6794,7 +7138,7 @@ Source:
   EIA -- Mix of multiple EIA Forms
 
 Primary key:
-  This table has no primary key. There are a handful of NULL Utility IDs in this table. The natural primary key would be: ['plant_id_eia, 'generator_id', 'utility_id_eia', 'report_date', 'ownership_record_type'].
+  This table has no primary key. This table would have a primary key of the following columns, except there are ~200 records without utility IDs: ['plant_id_eia', 'generator_id', 'report_date', 'utility_id_eia', 'ownership_record_type'].
 
 
 Usage Warnings
@@ -6803,7 +7147,37 @@ Usage Warnings
 
 * Some columns contain subtotals; use caution when choosing columns to aggregate.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+Generators that report to EIA can have
+multiple utility owners. EIA reports the ownership fraction for each of the owners
+of generators (see :ref:`core_eia860__scd_ownership`). This table includes two records
+for each generator's owner: one record represents a total ownership stake and the
+other record represents a proportional ownership stake (the ``ownership_record_type``
+column labeled as "total" and "owned" respectively). All of the values reported for
+these generator-owner records are scaled to the ownership stake (represented by
+``fraction_owned``).
+
+This table was created to represent every possible version of ownership slices of the
+EIA generators. It is primarily used as an input to :ref:`out_eia__yearly_plant_parts`.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -6979,6 +7353,8 @@ Usage Warnings
 
 * Some columns contain subtotals; use caution when choosing columns to aggregate.
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 
@@ -7011,6 +7387,15 @@ and the total records are labeled as ``total``.
 
 This table includes A LOT of duplicative information about EIA plants. It is primarily
 meant for use as an input into the record linkage between FERC1 plants and EIA.
+
+This table inherits canonicalized values for generators, plants, and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -7220,7 +7605,25 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This table inherits canonicalized values for plants.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -7460,7 +7863,25 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This table inherits canonicalized values for utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -10426,7 +10847,8 @@ Source:
   FERC Form 1 -- Annual Report of Major Electric Utilities (Schedule 326)
 
 Primary key:
-  This table has no primary key.
+  This table has no primary key. The primary key for this table would be record_id,
+  however a small number of these values are duplicated in 2021, 2022, and 2024.
 
 
 Usage Warnings
@@ -12166,10 +12588,10 @@ out_ferc714__hourly_estimated_state_demand
 -------------------------------------------------------------------------------
 Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=out_ferc714__hourly_estimated_state_demand>`__
 
-Hourly time series of estimated hourly electricity demand for each state, scaled such that it matches the total electricity sales by state reported in EIA 861.
+Hourly time series of estimated electricity demand for each state, scaled such that it matches the total electricity sales by state reported in EIA 861.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   FERC Form 714 -- Annual Electric Balancing Authority Area and Planning Area Report
@@ -12182,9 +12604,38 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Contains estimated values.
+
+* Contains information from multiple raw inputs.
+
+* Large table; do not attempt to open with Excel.
+
 * Contains information from multiple raw inputs.
 
 * FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This table uses hourly
+electricity demand and information about service territories to estimate the total
+hourly electricity demand for each US state. Hourly demand is drawn from the FERC
+714, which reports at the balancing authority and utility level. Service territories
+for utilities and balancing authorities are inferred from information in the EIA 861,
+including the counties served by each utility and the utilities that make up each
+balancing authority.
+
+This table uses the total electricity sales by state reported in the EIA 861 as a
+scaling factor to ensure that the magnitude of electricity sales is roughly correct, and
+obtains the shape of the demand curve from the hourly planning area demand reported in
+the FERC 714.
+
+This table includes the state FIPS codes - see :ref:`out_censusdp1tract__states` for
+additional information about FIPS state codes.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -12261,7 +12712,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of electricity demand by planning area.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   FERC Form 714 -- Annual Electric Balancing Authority Area and Planning Area Report (Part III, Schedule 2a)
@@ -12385,7 +12836,7 @@ Source:
   FERC Form 714 -- Annual Electric Balancing Authority Area and Planning Area Report
 
 Primary key:
-  This table has no primary key. The state and county FIPS columns which are part of the natural primary key can be null. The natural primary key would be: ['respondent_id_ferc714', 'report_date', 'state_id_fips', 'county_id_fips'].
+  This table has no primary key. Note that the state and county FIPS columns can be null. Otherwise the natural primary key would be: ['respondent_id_ferc714', 'report_date', 'county_id_fips']. The state FIPS code is not part of the primary key because the first two digits of the county FIPS code indicate the state.
 
 
 Usage Warnings
@@ -12627,7 +13078,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of capacity factors defining the capacity available from an aggregated group of generators.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   GridPath Resource Adequacy Toolkit Data
@@ -12641,6 +13092,8 @@ Usage Warnings
 
 
 * Contains estimated values.
+
+* The data is no longer being collected or reported in this way.
 
 
 
@@ -12738,6 +13191,8 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
 
 * FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
@@ -12764,6 +13219,15 @@ The EIA data associated with each FERC plant record comes from our Plant Parts E
 table, :ref:`out_eia__yearly_plant_parts`.
 The EIA data in each record represents an aggregation of several slices of an EIA
 plant, across both physical characteristics and utility ownership.
+
+This table inherits canonicalized values for generators and plants.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -13182,13 +13646,20 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Changelog table tracking changes in the names each SEC 10-K filer has used.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   U.S. Securities and Exchange Commission (SEC) Form 10-K
 
 Primary key:
   This table has no primary key.
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -13198,10 +13669,10 @@ Additional Details
 ^^^^^^^^^^^^^^^^^^
 
 
-We use the company name reported in association each name change block in the company
-information table to fill in the most recent value of ``company_name_new``. Roughly
-1,000 reported "name changes" in which the old and new names were identical have been
-dropped.
+We use the company name reported in association with each name change block in the
+company information table to fill in the most recent value of ``company_name_new``.
+Roughly 1,000 reported "name changes" in which the old and new names were identical
+have been dropped.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -13292,6 +13763,8 @@ Usage Warnings
 
 
 * This data has been extracted probabilistically using a machine learning model and contains some incompletions and errors. It should not be treated as ground truth data.
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -13525,6 +13998,13 @@ Primary key:
   filename_sec10k, central_index_key
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
+
+
 
 
 
@@ -13707,6 +14187,13 @@ Primary key:
   filename_sec10k
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
+
+
 
 
 
@@ -13809,7 +14296,7 @@ Noticed any irregularities with this table? `File a report. <https://github.com/
 Hourly time series of estimated county-averaged capacity factors for wind and solar generating facilities across the contiguous United States (US), to be used as a tool and input for resource adequacy modeling and planning.
 
 Processing:
-  Data has been expanded into a wide/denormalized format, with IDs and codes accompanied by human-readable names and descriptions.
+  Data is ready for use in analyses, but for practical reasons has not been denormalized and remains in narrow format.
 
 Source:
   Vibrant Clean Energy Resource Adequacy Renewable Energy (RARE) Power Dataset
@@ -14604,7 +15091,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for boilers are set. It contains values which are expected to vary slowly, while
+:ref:`core_eia__entity_boilers` contains those expected to remain fixed.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -14736,7 +15244,7 @@ Columns
   * - hrsg
     - boolean
     - indicates if the boiler is a heat recovery steam generator (HRSG).
-  * - max_steam_flow_1000_lbs_per_hour
+  * - max_steam_flow_lbs_per_hour
     - number
     - Maximum continuous steam flow at 100 percent load.
   * - mercury_control_existing_strategy_1
@@ -14951,6 +15459,13 @@ Primary key:
   report_year, plant_id_eia, emission_control_id_pudl
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
+
 
 
 
@@ -14960,6 +15475,15 @@ Additional Details
 Includes control ids for sulfur dioxide
 (SO2), particulate matter, mercury, nitrogen oxide (NOX), and acid (HCl) gas
 monitoring.
+
+This table inherits canonicalized values for plants and utilities.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -15079,7 +15603,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for generators are set. It contains values which are expected to vary slowly, while
+:ref:`core_eia__entity_generators` contains those expected to remain fixed.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -16145,7 +16690,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for plants are set. It contains values which are expected to vary slowly, while
+:ref:`core_eia__entity_plants` contains those expected to remain fixed.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -16346,7 +16912,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for utilities are set. It contains values which are expected to vary slowly, while
+:ref:`core_eia__entity_utilities` contains those expected to remain fixed.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -17693,11 +18280,23 @@ Primary key:
   This table has no primary key.
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* The data is no longer being collected or reported in this way.
+
+
 
 
 
 Additional Details
 ^^^^^^^^^^^^^^^^^^
+
+From 2016 on, there's no great match for the data found in this table.
+You may be able to compute an analog for fuel percents using the capacity and tech class
+figures in :ref:`core_eia861__yearly_non_net_metering_customer_fuel_class`, but no
+corresponding consumption or generation information is available in the new format.
 
 The raw EIA861 distributed generation (DG) table (split into three normalized tables in
 PUDL) was renamed in 2016 to Non-Net Metering to prevent double counting. The data in
@@ -17797,11 +18396,21 @@ Primary key:
   This table has no primary key.
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* The data is no longer being collected or reported in this way.
+
+
 
 
 
 Additional Details
 ^^^^^^^^^^^^^^^^^^
+
+From 2016 on, data similar to that found in this table can be found in
+:ref:`core_eia861__yearly_non_net_metering_misc`.
 
 The raw EIA861 distributed generation (DG) table (split into three normalized tables in
 PUDL) was renamed in 2016 to Non-Net Metering to prevent double counting. The data in
@@ -17913,11 +18522,21 @@ Primary key:
   This table has no primary key.
 
 
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* The data is no longer being collected or reported in this way.
+
+
 
 
 
 Additional Details
 ^^^^^^^^^^^^^^^^^^
+
+From 2016 on, data similar to that found in this table can be found in
+:ref:`core_eia861__yearly_non_net_metering_customer_fuel_class`.
 
 The raw EIA861 distributed generation (DG) table (split into three normalized tables in
 PUDL) was renamed in 2016 to Non-Net Metering to prevent double counting. The data in
@@ -18322,7 +18941,7 @@ Columns
     - Maturity of the source data published by EIA that is reflected in this record. EIA releases data incrementally over time, including monthly updates, annual year-to-date updates, provisional early releases of annual data, and final annual release data that is not expected to change further. Records sourced from multiple upstream EIA datasets may have no well defined data maturity. Records whose values have been inferred within PUDL will also have no data maturity.
   * - incremental_energy_savings_mwh
     - number
-    - energy savings in the given report year resulting from new participants in existing demand response programs and all participants in new demand response programs.
+    - Energy savings in the given report year resulting from new participants in existing demand response programs and all participants in new demand response programs.
   * - incremental_life_cycle_energy_savings_mwh
     - number
     - The estimated total changes in energy use for incremental programs and participants over the life of the programs. DSM programs have a useful life, and the net effects of these programs will diminish over time. Considers the useful life of energy efficiency technology by accounting for building demolition, equipment degradation, and program attrition.
@@ -18820,6 +19439,9 @@ Primary key:
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
+This table's data starts in 2016. For 2015 and earlier, data similar to that found in this table can be found in
+:ref:`core_eia861__yearly_distributed_generation_tech`.
+
 The raw EIA861 distributed generation (DG) table (split into three normalized tables in
 PUDL) was renamed in 2016 to Non-Net Metering to prevent double counting. The data in
 the Non-Net Metering table (2016+) are split by sector, contain fuel cell information,
@@ -18933,6 +19555,9 @@ Primary key:
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
+This table's data starts in 2016. For 2015 and earlier, data similar to that found in this table can be found in
+:ref:`core_eia861__yearly_distributed_generation_misc`.
+
 The raw EIA861 distributed generation (DG) table (split into three normalized tables in
 PUDL) was renamed in 2016 to Non-Net Metering to prevent double counting. The data in
 the Non-Net Metering table (2016+) are split by sector, contain fuel cell information,
@@ -19025,16 +19650,25 @@ core_eia861__yearly_operational_data_misc
 -------------------------------------------------------------------------------
 Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_eia861__yearly_operational_data_misc>`__
 
-Annual time series of megawatt hours (MWH) for all a utility's sources of electricity and disposition of electricity listed.
+Annual time series of megawatt hours (MWH) for the sources and disposition of a utility's electricity.
 
 Processing:
   Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
 
 Source:
-  EIA Form 861 -- Annual Electric Power Industry Report
+  EIA Form 861 -- Annual Electric Power Industry Report (Schedule 2B)
 
 Primary key:
-  This table has no primary key.
+  utility_id_eia, nerc_region, report_date
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* Some values have been redacted.
+
+* Contains rows where missing values were imputed.
 
 
 
@@ -19043,10 +19677,16 @@ Primary key:
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
-Sources include: net generation
-purchases from electricity suppliers, exchanges received, exchanges delivered, exchanges
-net, wheeled received, wheeled delivered, wheeled net, transmission by others, and
-losses.
+Respondents are required to report this information to the EIA, but are not required
+to disclose utility-level data to the public. When a respondent chooses to keep its
+utility-level data proprietary, it files using EIA utility id 88888. For more details,
+see :ref:`EIA-861 Notable Irregularities <eia861-notable-irregularities>`.
+
+Rows where ``data_observed`` is False were labeled as imputed in the raw EIA data.
+The EIA documentation does not specify what imputation applies to operational data,
+only net metering and non net-metering distributed data. Less than 1% of rows are
+labeled as imputed, all of which occur in 2004 or 2005. Imputed rows make up no
+more than 25% of the rows for any utility.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -19198,10 +19838,17 @@ Processing:
   Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
 
 Source:
-  EIA Form 861 -- Annual Electric Power Industry Report
+  EIA Form 861 -- Annual Electric Power Industry Report (Schedule 2C)
 
 Primary key:
-  This table has no primary key.
+  utility_id_eia, nerc_region, report_date, revenue_class
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* Some values have been redacted.
 
 
 
@@ -19211,10 +19858,15 @@ Additional Details
 ^^^^^^^^^^^^^^^^^^
 
 A utility's revenue by type of electric operating revenue.
-Includes electric operating revenue From sales to ultimate customers, revenue from
+Includes electric operating revenue from sales to ultimate customers, revenue from
 unbundled (delivery) customers, revenue from sales for resale, electric credits/other
 adjustments, revenue from transmission, other electric operating revenue, and total
 electric operating revenue.
+
+Respondents are required to report this information to the EIA, but are not required
+to disclose utility-level data to the public. When a respondent chooses to keep its
+utility-level data proprietary, it files using EIA utility id 88888. For more details,
+see :ref:`EIA-861 Notable Irregularities <eia861-notable-irregularities>`.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -19303,10 +19955,12 @@ Processing:
   Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
 
 Source:
-  EIA Form 861 -- Annual Electric Power Industry Report
+  EIA Form 861 -- Annual Electric Power Industry Report (Schedules 3B and 3C)
 
 Primary key:
-  This table has no primary key.
+  utility_id_eia, state, report_date, standard 
+
+  Note: ``standard`` is included because while respondents are asked to only fill out one of parts B or C, sometimes they fill out both.
 
 
 
@@ -19315,10 +19969,37 @@ Primary key:
 Additional Details
 ^^^^^^^^^^^^^^^^^^
 
+Contains information on non-momentary electrical interruptions.
 Includes the system average interruption duration index (SAIDI), system average
 interruption frequency index (SAIFI), and customer average interruption duration index
 (CAIDI) aka SAIDI/SAIFI with and without major event days and loss of service. Includes
 the standard (IEEE/other) and other relevant information.
+
+SAIDI is measured in minutes, and represents the sum over the year of all customers interrupted times
+the number of minutes they experienced an interruption, divided by total number of customers.
+
+SAIFI is measured in customers, and represents the sum over the year of the total number of customers that
+experienced an interruption, divided by the total number of customers.
+
+The IEEE standards which can be used to calculate SAIDI and SAIFI include IEEE 1366-2003 and IEEE 1366-2012.
+These standards define momentary interruptions as having a duration of five minutes or less.
+If one of these IEEE standards is used, respondents fill out part B and are required to specify:
+
+* SAIDI major event days minus loss of supply
+* SAIFI major event days minus loss of supply
+
+SAIDI and SAIFI major event days minus loss of supply excludes events where the reliability event resulted
+from an event on the distribution system, not from the high-voltage system. The voltage that distinguishes
+the distribution system from the supply system is given in ``highest_distribution_voltage_kv``.
+
+If a method other than these IEEE standards is used for calculating SAIDI and SAIFI indexes, respondents
+fill out part C and are required to specify:
+
+* whether inactive accounts are included
+* how they define a momentary interruption (less than 1 minute, less than or equal to 5 minutes, or other)
+
+In this table, column ``standard`` is "ieee_standard" for respondents who have filled out part B, and
+"other_standard" for respondents who have filled out part C.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -19810,7 +20491,8 @@ Source:
   EIA Form 861 -- Annual Electric Power Industry Report
 
 Primary key:
-  This table has no primary key.
+  This table has no primary key. The primary key would have been: utility_id_eia, state, report_date,
+  and nerc_region, but there are nulls in the state column across several years of reporting.
 
 
 
@@ -19949,7 +20631,8 @@ Source:
   EIA Form 861 -- Annual Electric Power Industry Report
 
 Primary key:
-  This table has no primary key.
+  This table has no primary key. The primary key would have been: utility_id_eia, state, report_date,
+  nerc_region, and nerc_regions_of_operation, but there are nulls in the state column across several years of reporting.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -20038,7 +20721,8 @@ Source:
   EIA Form 861 -- Annual Electric Power Industry Report
 
 Primary key:
-  This table has no primary key.
+  This table has no primary key. The primary key would have been: utility_id_eia, state, report_date,
+  nerc_region, and rtos_of_operation, but there are nulls in the state column across several years of reporting.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -24662,7 +25346,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for boilers are set. It contains values which are expected to remain fixed, while
+:ref:`core_eia860__scd_boilers` contains those which may vary from year to year.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -24752,7 +25457,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for generators are set. It contains values which are expected to remain fixed, while
+:ref:`core_eia860__scd_generators` contains those which may vary from year to year.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -24890,7 +25616,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for plants are set. It contains values which are expected to remain fixed, while
+:ref:`core_eia860__scd_plants` contains those which may vary from year to year.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -24998,7 +25745,28 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Data has been drawn from several EIA sources which are not always consistent with each other, and PUDL chooses the most consistent or relevant value to facilitate cross-referencing even if that means some values will differ from the raw sources. See `Harvesting <https://catalystcoop-pudl.readthedocs.io/en/latest/data_dictionaries/usage_warnings.html#harvested>`_ for details.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This is one of two tables where canonical
+values for utilities are set. It contains values which are expected to remain fixed, while
+:ref:`core_eia860__scd_utilities` contains those which may vary from year to year.
+EIA reports many attributes in many different tables across
+EIA-860 and EIA-923. In order to compile tidy, well-normalized database tables, PUDL
+collects all instances of these values and and chooses a canonical value. By default,
+PUDL chooses the most consistently reported value of a given attribute as long as it
+is at least 70% of the given instances reported. If an attribute was reported
+inconsistently across the original EIA tables, then it will show up as a
+null value.
+All tables downstream of this one inherit the canonical values established here.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -25940,7 +26708,32 @@ Usage Warnings
 ^^^^^^^^^^^^^^
 
 
+* Large table; do not attempt to open with Excel.
+
+* Not all IDs are present.
+
 * Contains information from multiple raw inputs.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+Continuous Emissions Monitoring Systems
+(CEMS) are used to determine the rate of gas or particulate matter exiting a point
+source of emissions. The EPA Clean Air Markets Division (CAMD) has collected data on
+power plant emissions from CEMS units stretching back to 1995. The CEMS dataset
+includes hourly gross load, SO2, CO2, and NOx emissions associated with a given
+emissions-unit during startup, shutdown, and instances of malfunction. An EPA CEMS
+emissions-unit or smokestack unit is not the same as an EIA unit. See
+:ref:`core_epa__assn_eia_epacamd` for details about how to connect CEMS data to
+corresponding EIA units.
+
+Only fossil-combustion units over 25 MW are required to install and use CEMS, so
+there are some units that do report in EIA-860 or EIA-923 that do not have any
+CEMS data.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -26036,7 +26829,7 @@ Columns
   * - state
     - string
     - Two letter US state abbreviation.
-  * - steam_load_1000_lbs
+  * - steam_load_lbs
     - number
     - Total steam pressure produced by a unit during the reported hour.
   * - year
@@ -28014,7 +28807,8 @@ Source:
   FERC Form 1 -- Annual Report of Major Electric Utilities (Schedule 326)
 
 Primary key:
-  This table has no primary key.
+  This table has no primary key. The primary key for this table would be record_id,
+  however a small number of these values are duplicated in 2021, 2022, and 2024.
 
 
 Usage Warnings
@@ -29565,6 +30359,566 @@ Columns
     - string
     - Account identifier from FERC's Uniform System of Accounts for Electric Plant. Includes higher level labeled categories.
 
+.. _core_ferceqr__contracts:
+
+-------------------------------------------------------------------------------
+core_ferceqr__contracts
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_ferceqr__contracts>`__
+
+Contains information about contracts between companies selling and buying electricity market products.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  FERC Form 920 -- Electric Quarterly Report (EQR)
+
+Primary key:
+  This table has no primary key. The FERC EQR contracts table has no natural primary key.
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+* FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_ferceqr__contracts>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_ferceqr__contracts.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__contracts.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__contracts.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_ferceqr__contracts.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__contracts.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - actual_termination_date
+    - date
+    - The date the contract actually terminates.
+  * - begin_date
+    - datetime
+    - First date and time for the sale of the product at the rate specified.
+  * - class_name
+    - string
+    - F - Firm: For transmission sales, a service or product that always has priority over non-firm service. For power sales, a service or product that is not interruptible for economic reasons. NF - Non-firm: For transmission sales, a service that is reserved and/or scheduled on an as-available basis and is subject to curtailment or interruption at a lesser priority compared to Firm service. For an energy sale, a service or product for which delivery or receipt of the energy may be interrupted for any reason or no reason, without liability on the part of either the buyer or seller. UP - Unit Power Sale: Designates a dedicated sale of energy and capacity from one or more than one specified generation unit(s). N/A: To be used only when the other available Class Names do not apply.
+  * - commencement_date_of_contract_term
+    - date
+    - The date the terms of the contract reported in fields 18, 23 and 25 through 44 (as defined in the data dictionary) became effective. If those terms became effective on multiple dates (i.e., due to one or more amendments), the date to be reported in this field is the date the most recent amendment became effective. If the contract or the most recent reported amendment does not have an effective date, the date when service began pursuant to the contract or most recent reported amendment may be used. If the terms reported in fields 18, 23 and 25 through 44 have not been amended since January 1, 2009, the initial date the contract became effective (or absent an effective date the initial date when service began) may be used.
+  * - contract_affiliate
+    - boolean
+    - If True, this field indicates the customer is an affiliate of the seller. The customer is an affiliate if it controls, is controlled by, or is under common control with the seller. This includes a division that operates as a functional unit. A customer of a seller who is an Exempt Wholesale Generator may be defined as an affiliate under the Public Utility Holding Company Act and the FPA.
+  * - contract_execution_date
+    - date
+    - The date the contract was signed. If the parties signed on different dates, use the most recent date signed.
+  * - contract_service_agreement_id
+    - string
+    - Unique identifier given to each service agreement that can be used by the Seller to produce the agreement, if requested. The identifier may be the number assigned by FERC for those service agreements that have been filed with and accepted by the Commission, or it may be generated as part of an internal identification system.
+  * - contract_termination_date
+    - date
+    - The date that the contract expires.
+  * - contract_unique_id
+    - string
+    - An identifier beginning with the letter “C” and followed by a number (e.g., 'C1', 'C2') used to designate a record containing contract information. Note that these contract IDs may only be unique within the context of a particular seller, seller-buyer pair, or timeframe. FERC documentation of the field is limited.
+  * - customer_company_name
+    - string
+    - The name of the purchaser of contract products and services. Unlike the seller_company_name this name is not guaranteed to match a name in the core_ferceqr__quarterly_identity name. In addition, the same customer company may appear with different names in different contracts and transactions, since this field is an unconstrained string chosen by the seller.
+  * - end_date
+    - datetime
+    - Last date and time for the sale of the product at the rate specified.
+  * - extension_provision_description
+    - string
+    - Description of terms that provide for the continuation of the contract.
+  * - ferc_tariff_reference
+    - string
+    - The FERC tariff reference cites the document that specifies the terms and conditions under which a Seller is authorized to make transmission sales, power sales or sales of related jurisdictional services at cost-based rates or at market-based rates. If the sales are market-based, the tariff that is specified in the FERC order granting the Seller Market Based Rate Authority must be listed. If a non-public utility does not have a FERC Tariff Reference, it should enter “NPU” for the FERC Tariff Reference.
+  * - increment_name
+    - string
+    - 5: Terms of the contract (if specifically noted in the contract) set for more than 0 minutes and less than or equal to 5 minutes (> 0 and ≤ 5 minutes). 15: Terms of the contract (if specifically noted in the contract) set for more than 5 minutes and less than or equal to 15 minutes (> 5 and ≤ 15 minutes). H: Terms of the contract (if specifically noted in the contract) set for more than 15 minutes and less than or equal to 6 hours (> 15 minutes and ≤ 6 hours). D: Terms of the contract (if specifically noted in the contract) set for more than 6 and up to 60 hours (> 6 and ≤ 60 hours). W: Terms of the contract (if specifically noted in the contract) set for over 60 hours and up to 168 hours (> 60 and ≤ 168 hours). M: Terms of the contract (if specifically noted in the contract) set for more than 168 hours up to, but not including, one year (> 168 hours and < 1 year). Y: Terms of the contract (if specifically noted in the contract) set for one year or more (≥ 1 year). N/A: Terms of the contract do not specify an increment.
+  * - increment_peaking_name
+    - string
+    - FP: The product described may be sold during those hours designated as on-peak and off-peak at the point of delivery. OP: The product described may be sold only during those hours designated as off-peak at the point of delivery. P: The product described may be sold only during those hours designated as on-peak at the point of delivery. N/A: To be used only when the increment peaking name is not specified in the contract.
+  * - point_of_delivery_balancing_authority
+    - string
+    - The registered Balancing Authority (formerly called NERC Control Area) where a jurisdictional product is delivered and/or service ends for a transmission or transmission-related jurisdictional sale. The Balancing Authority will be identified with the abbreviation used in OASIS applications. If delivery occurs at the interconnection of two control areas, the control area that the product is entering should be used. If delivery occurs at a trading hub, the term 'Hub' should be used.
+  * - point_of_delivery_specific_location
+    - string
+    - The specific location at which the product is delivered if designated in the contract. If receipt occurs at a trading hub, a standardized hub name must be used.
+  * - point_of_receipt_balancing_authority
+    - string
+    - The registered Balancing Authority (formerly called NERC Control Area) where service begins for a transmission or transmission-related jurisdictional sale. The Balancing Authority will be identified with the abbreviation used in OASIS applications. If receipt occurs at a trading hub, the term 'Hub' should be used.
+  * - point_of_receipt_specific_location
+    - string
+    - The specific location at which the product is received if designated in the contract. If receipt occurs at a trading hub, a standardized hub name must be used. If more points of receipt are listed in the contract than can fit into the 50 character space, a description of the collection of points may be used. 'Various' alone, is unacceptable unless the contract itself uses that terminology.
+  * - product_name
+    - string
+    - Description of product being offered.
+  * - product_type_name
+    - string
+    - CB: Energy, capacity or ancillary services sold under a FERC-approved cost-based rate tariff. CR: An agreement under which a transmission provider sells, assigns or transfers all or portion of its rights to an eligible customer. CR-AD: Transmission capacity reassignments reported in Atlantic Daylight time. CR-AP: Transmission capacity reassignments reported in Atlantic Prevailing time. CR-AS: Transmission capacity reassignments reported in Atlantic Standard time. CR-CD: Transmission capacity reassignments reported in Central Daylight time. CR-CP: Transmission capacity reassignments reported in Central Prevailing time. CR-CS: Transmission capacity reassignments reported in Central Standard time. CR-ED: Transmission capacity reassignments reported in Eastern Daylight time. CR-EP: Transmission capacity reassignments reported in Eastern Prevailing time. CR-ES: Transmission capacity reassignments reported in Eastern Standard time. CR-MD: Transmission capacity reassignments reported in Mountain Daylight time. CR-MP: Transmission capacity reassignments reported in Mountain Prevailing time. CR-MS: Transmission capacity reassignments reported in Mountain Standard time. CR-PD: Transmission capacity reassignments reported in Pacific Daylight time. CR-PP: Transmission capacity reassignments reported in Pacific Prevailing time. CR-PS: Transmission capacity reassignments reported in Pacific Standard time. MB: Energy, capacity or ancillary services sold under the seller’s FERC-approved market-based rate tariff. T: The product is sold under a FERC-approved transmission tariff. NPU: The product is sold by a non-public utility that is required to file the EQR under section 220 of the Federal Power Act. OTHER: The product cannot be characterized by the other product type names.
+  * - quantity
+    - number
+    - Quantity for the contract product identified.
+  * - rate
+    - number
+    - The charge for the product per unit as stated in the contract.
+  * - rate_description
+    - string
+    - Text description of rate. If the rate is currently available on the FERC website, a citation of the FERC Accession Number and the relevant FERC tariff including page number or section may be included instead of providing the entire rate algorithm. If the rate is not available on the FERC website, include the rate algorithm, if rate is calculated. If the algorithm would exceed the 300 character field limit, it may be provided in a descriptive summary (including bases and methods of calculations) with a detailed citation of the relevant FERC tariff including page number and section.
+  * - rate_maximum
+    - number
+    - Maximum rate to be charged per the contract, if a range is specified.
+  * - rate_minimum
+    - number
+    - Minimum rate to be charged per the contract, if a range is specified.
+  * - rate_units
+    - string
+    - Measure stated in the contract for the product sold. FERC EQR.
+  * - seller_company_id_ferc
+    - string
+    - The Company Identifier (CID) obtained through FERC's Company Registration system corresponding to the selling company.
+  * - seller_company_name
+    - string
+    - The name of the company that is authorized to make sales as indicated in the company’s FERC tariff(s) or that is required to file the EQR under section 220 of the Federal Power Act. This name must match the name provided as seller_company_name in the core_ferceqr__quarterly_identity table. There are a handful of cases in which this requirement is violated, so any joins between tables should rely on company_id_ferc, not the company names.
+  * - term_name
+    - string
+    - Contracts with durations of one year or greater are long-term (LT). Contracts with shorter durations are short-term (ST).
+  * - units
+    - string
+    - Measure stated in the contract for the product sold.
+  * - year_quarter
+    - string
+    - Year-quarter corresponding to record. Formatted like YYYYq{1-4}.
+
+.. _core_ferceqr__quarterly_identity:
+
+-------------------------------------------------------------------------------
+core_ferceqr__quarterly_identity
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_ferceqr__quarterly_identity>`__
+
+Quarterly time series of individuals who filed FERC EQR for a company in a given quarter.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  FERC Form 920 -- Electric Quarterly Report (EQR)
+
+Primary key:
+  This table has no primary key. The primary key ought to be ['year_quarter', 'company_id_ferc', 'filer_unique_id'], where filer_unique_id is an employee-level ID. However, a handful of companies have erroneously reported the same filer_unique_id for multiple employees, resulting in duplicate records. In other cases, there appear to be multiple filings in a given quarter for the same company and filer, resulting in additional duplicates. Thus, there is no reliable natural primary key for the identity table.
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+* FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_ferceqr__quarterly_identity>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_ferceqr__quarterly_identity.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_identity.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_identity.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_identity.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_identity.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - company_id_ferc
+    - string
+    - The Company Identifier (CID) obtained through FERC's Company Registration system.
+  * - company_name
+    - string
+    - Name of company submitting SEC 10k filing.
+  * - contact_address
+    - string
+    - Street address for contact identified in contact_name.
+  * - contact_city
+    - string
+    - City for contact identified in contact_name.
+  * - contact_country_name
+    - string
+    - Country (USA, Canada, Mexico, or United Kingdom) for contact identified in contact_name.
+  * - contact_email
+    - string
+    - Email for contact identified in contact_name.
+  * - contact_name
+    - string
+    - (Seller) – The name of the contact for the company authorized to make sales as indicated in the company’s FERC tariff(s) or that is required to file the EQR under section 220 of the Federal Power Act. (Agent) – Name of the person who prepared the filing
+  * - contact_phone
+    - string
+    - Phone number for contact identified in contact_name.
+  * - contact_state
+    - string
+    - State for contact identified in contact_name.
+  * - contact_title
+    - string
+    - Title of of utility contact 1.
+  * - contact_zip
+    - string
+    - Zip code for contact identified in contact_name.
+  * - filer_unique_id
+    - string
+    - (Seller) An identifier (e.g., “FS1”, “FS2”) used to designate a record containing Seller identification information. One record for each seller company must be included in an EQR for a given quarter. (Agent) – An identifier (i.e., “FA1”) used to designate a record containing Agent identification information. One record with the FA1 identifier must be included in an EQR for a given quarter.
+  * - transactions_reported_to_index_price_publishers
+    - boolean
+    - Sellers should indicate whether they have reported their sales transactions to index price publisher(s). If they have, Sellers should indicate specifically which index publisher(s) in Field Number 73.
+  * - year_quarter
+    - string
+    - Year-quarter corresponding to record. Formatted like YYYYq{1-4}.
+
+.. _core_ferceqr__quarterly_index_pub:
+
+-------------------------------------------------------------------------------
+core_ferceqr__quarterly_index_pub
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_ferceqr__quarterly_index_pub>`__
+
+Quarterly time series of electricity market price indices that individual EQR filers reported transactions to.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  FERC Form 920 -- Electric Quarterly Report (EQR)
+
+Primary key:
+  year_quarter, company_id_ferc, filer_unique_id
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+* FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_ferceqr__quarterly_index_pub>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_ferceqr__quarterly_index_pub.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_index_pub.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_index_pub.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_index_pub.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__quarterly_index_pub.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - company_id_ferc
+    - string
+    - The Company Identifier (CID) obtained through FERC's Company Registration system.
+  * - filer_unique_id
+    - string
+    - (Seller) An identifier (e.g., “FS1”, “FS2”) used to designate a record containing Seller identification information. One record for each seller company must be included in an EQR for a given quarter. (Agent) – An identifier (i.e., “FA1”) used to designate a record containing Agent identification information. One record with the FA1 identifier must be included in an EQR for a given quarter.
+  * - index_price_publisher_name
+    - string
+    - Name of index price publisher, which can be one of the following: AM - Argus Media, EIG - Energy Intelligence Group, Inc., IP - Intelligence Press, P - Platts, B - Bloomberg, PDX - Powerdex, SNL - SNL Energy
+  * - seller_company_name
+    - string
+    - The name of the company that is authorized to make sales as indicated in the company’s FERC tariff(s) or that is required to file the EQR under section 220 of the Federal Power Act. This name must match the name provided as seller_company_name in the core_ferceqr__quarterly_identity table. There are a handful of cases in which this requirement is violated, so any joins between tables should rely on company_id_ferc, not the company names.
+  * - transactions_reported
+    - string
+    - Description of the types of transactions reported to the index publisher identified in this record.
+  * - year_quarter
+    - string
+    - Year-quarter corresponding to record. Formatted like YYYYq{1-4}.
+
+.. _core_ferceqr__transactions:
+
+-------------------------------------------------------------------------------
+core_ferceqr__transactions
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_ferceqr__transactions>`__
+
+Contains information about individual electricity market transactions that took place during a given reporting quarter. Reported by the seller.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  FERC Form 920 -- Electric Quarterly Report (EQR)
+
+Primary key:
+  year_quarter, seller_company_id_ferc, transaction_unique_id
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+* FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities <https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities>`_ for details.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_ferceqr__transactions>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_ferceqr__transactions.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__transactions.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__transactions.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_ferceqr__transactions.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_ferceqr__transactions.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - class_name
+    - string
+    - F - Firm: For transmission sales, a service or product that always has priority over non-firm service. For power sales, a service or product that is not interruptible for economic reasons. NF - Non-firm: For transmission sales, a service that is reserved and/or scheduled on an as-available basis and is subject to curtailment or interruption at a lesser priority compared to Firm service. For an energy sale, a service or product for which delivery or receipt of the energy may be interrupted for any reason or no reason, without liability on the part of either the buyer or seller. UP - Unit Power Sale: Designates a dedicated sale of energy and capacity from one or more than one specified generation unit(s). N/A: To be used only when the other available Class Names do not apply.
+  * - contract_service_agreement_id
+    - string
+    - Unique identifier given to each service agreement that can be used by the Seller to produce the agreement, if requested. The identifier may be the number assigned by FERC for those service agreements that have been filed with and accepted by the Commission, or it may be generated as part of an internal identification system.
+  * - customer_company_name
+    - string
+    - The name of the purchaser of contract products and services. Unlike the seller_company_name this name is not guaranteed to match a name in the core_ferceqr__quarterly_identity name. In addition, the same customer company may appear with different names in different contracts and transactions, since this field is an unconstrained string chosen by the seller.
+  * - exchange_brokerage_service
+    - string
+    - If a broker service is used to consummate or effectuate a transaction, the term “Broker” shall be provided. If an exchange is used, the specific exchange that is used shall be selected from the Commission-provided list. Allowed values include BROKER, ICE, NODAL, and NYMEX.
+  * - ferc_tariff_reference
+    - string
+    - The FERC tariff reference cites the document that specifies the terms and conditions under which a Seller is authorized to make transmission sales, power sales or sales of related jurisdictional services at cost-based rates or at market-based rates. If the sales are market-based, the tariff that is specified in the FERC order granting the Seller Market Based Rate Authority must be listed. If a non-public utility does not have a FERC Tariff Reference, it should enter “NPU” for the FERC Tariff Reference.
+  * - increment_name
+    - string
+    - 5: Terms of the contract (if specifically noted in the contract) set for more than 0 minutes and less than or equal to 5 minutes (> 0 and ≤ 5 minutes). 15: Terms of the contract (if specifically noted in the contract) set for more than 5 minutes and less than or equal to 15 minutes (> 5 and ≤ 15 minutes). H: Terms of the contract (if specifically noted in the contract) set for more than 15 minutes and less than or equal to 6 hours (> 15 minutes and ≤ 6 hours). D: Terms of the contract (if specifically noted in the contract) set for more than 6 and up to 60 hours (> 6 and ≤ 60 hours). W: Terms of the contract (if specifically noted in the contract) set for over 60 hours and up to 168 hours (> 60 and ≤ 168 hours). M: Terms of the contract (if specifically noted in the contract) set for more than 168 hours up to, but not including, one year (> 168 hours and < 1 year). Y: Terms of the contract (if specifically noted in the contract) set for one year or more (≥ 1 year). N/A: Terms of the contract do not specify an increment.
+  * - increment_peaking_name
+    - string
+    - FP: The product described may be sold during those hours designated as on-peak and off-peak at the point of delivery. OP: The product described may be sold only during those hours designated as off-peak at the point of delivery. P: The product described may be sold only during those hours designated as on-peak at the point of delivery. N/A: To be used only when the increment peaking name is not specified in the contract.
+  * - point_of_delivery_balancing_authority
+    - string
+    - The registered Balancing Authority (formerly called NERC Control Area) where a jurisdictional product is delivered and/or service ends for a transmission or transmission-related jurisdictional sale. The Balancing Authority will be identified with the abbreviation used in OASIS applications. If delivery occurs at the interconnection of two control areas, the control area that the product is entering should be used. If delivery occurs at a trading hub, the term 'Hub' should be used.
+  * - point_of_delivery_specific_location
+    - string
+    - The specific location at which the product is delivered if designated in the contract. If receipt occurs at a trading hub, a standardized hub name must be used.
+  * - price
+    - number
+    - Actual price charged for the product per unit. The price reported cannot be averaged or otherwise aggregated.
+  * - product_name
+    - string
+    - Description of product being offered.
+  * - rate_units
+    - string
+    - Measure stated in the contract for the product sold. FERC EQR.
+  * - seller_company_id_ferc
+    - string
+    - The Company Identifier (CID) obtained through FERC's Company Registration system corresponding to the selling company.
+  * - seller_company_name
+    - string
+    - The name of the company that is authorized to make sales as indicated in the company’s FERC tariff(s) or that is required to file the EQR under section 220 of the Federal Power Act. This name must match the name provided as seller_company_name in the core_ferceqr__quarterly_identity table. There are a handful of cases in which this requirement is violated, so any joins between tables should rely on company_id_ferc, not the company names.
+  * - seller_transaction_id
+    - string
+    - Unique reference number assigned by the Seller for each transaction. May only be unique in the context of the seller's internal record keeping. This is an unrestricted text field.
+  * - standardized_price
+    - number
+    - For product names energy, capacity, and booked out power only. Specify the price in $/MWh if the product is energy or booked out power and specify the price in $/MW-month if the product is capacity or booked out power.
+  * - standardized_quantity
+    - number
+    - For product names energy, capacity, and booked out power only. Specify the quantity in MWh if the product is energy or booked out power and specify the quantity in MW-month if the product is capacity or booked out power.
+  * - term_name
+    - string
+    - Contracts with durations of one year or greater are long-term (LT). Contracts with shorter durations are short-term (ST).
+  * - timezone
+    - string
+    - A code representing the so-called 'time zone' in which the sale was made. However, these codes do not actually correspond to time zones. Rather, they indicate an offset from UTC, which changes according to daylight savings vs. standard time. The codes are as follows: AD: Atlantic Daylight Time (UTC-3), AP: Atlantic Prevailing Time, AS: Atlantic Standard Time (UTC-4), CD: Central Daylight Time (UTC-5), CP: Central Prevailing Time, CS: Central Standard Time (UTC-6), ED: Eastern Daylight Time (UTC-4), EP: Eastern Prevailing Time, ES: Eastern Standard Time (UTC-5), MD: Mountain Daylight Time (UTC-6), MP: Mountain Prevailing Time, MS: Mountain Standard Time (UTC-7), PD: Pacific Daylight Time (UTC-7), PP: Pacific Prevailing Time, PS: Pacific Standard Time (UTC-8), UT: Coordinated Universal Time (UTC+0)
+  * - total_transaction_charge
+    - number
+    - transaction_quantity * price + total_transmission_charge.
+  * - total_transmission_charge
+    - number
+    - Payments received for transmission services when explicitly identified.
+  * - trade_date
+    - date
+    - The date upon which the parties made the legally binding agreement on the price of a transaction.
+  * - transaction_begin_date
+    - datetime
+    - First date and time the product is sold during the quarter.
+  * - transaction_end_date
+    - datetime
+    - Last date and time the product is sold during the quarter.
+  * - transaction_quantity
+    - number
+    - The quantity of the product in this transaction record.
+  * - transaction_unique_id
+    - string
+    - An identifier beginning with the letter “T” and followed by a number (e.g., “T1”, “T2”) used to designate a record containing transaction information. One record for each transaction record must be included in an EQR for a given quarter. A new transaction record must be used every time a price changes in a sale. Note, these ID's are only unique for a single company_identifier and year_quarter.
+  * - type_of_rate
+    - string
+    - FIXED: A fixed charge per unit of consumption. No variables are used to determine this rate. FORMULA: A calculation of a rate based upon a formula that does not contain an electric index component. ELECTRIC INDEX: A calculation of a rate based upon an index or a formula that contains an electric index component. An electric index includes an index published by an index publisher such as those required to be listed in Field Number 73 or a price published by an RTO/ISO (e.g., PJM West or Illinois Hub). RTO/ISO: If the price is the result of an RTO/ISO market or the sale is made to the RTO/ISO.
+  * - year_quarter
+    - string
+    - Year-quarter corresponding to record. Formatted like YYYYq{1-4}.
+
 .. _core_gridpathratoolkit__assn_generator_aggregation_group:
 
 -------------------------------------------------------------------------------
@@ -29582,6 +30936,13 @@ Source:
 
 Primary key:
   plant_id_eia, generator_id
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* The data is no longer being collected or reported in this way.
 
 
 
@@ -29677,6 +31038,23 @@ Source:
 
 Primary key:
   This table has no primary key. The fields technology_description_detail_1 and technology_description_detail_2 occasionally contain nulls, preventing this table from having a primary key.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+This table includes NREL's projections
+for capital and operational costs as well as operational attributes for a variety of
+technologies for each of the NREL ATB scenarios. Each new year of ATB data includes
+projections for the next 25 years.
+
+All of the NREL tables are related. If you want to understand the financial assumptions
+of a given scenario in this table, see :ref:`core_nrelatb__yearly_projected_financial_cases`.
+The other two ``core_nrealatb`` tables include attributes about technologies in these
+projections.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -31635,6 +33013,414 @@ Columns
     - string
     - Utility name, chosen arbitrarily from the several possible utility names available in the utility matching process. Included for human readability only.
 
+.. _core_rus7__yearly_balance_sheet_assets:
+
+-------------------------------------------------------------------------------
+core_rus7__yearly_balance_sheet_assets
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_rus7__yearly_balance_sheet_assets>`__
+
+Annual time series of assets and other debts from the balance sheet.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  USDA RUS Form 7 -- Financial and Operating Report: Electric Distribution (Part C)
+
+Primary key:
+  report_date, borrower_id_rus, asset_type
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_rus7__yearly_balance_sheet_assets>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_assets.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_assets.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_assets.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_assets.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_assets.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - asset_type
+    - string
+    - Type of asset being reported to the core_rus7__yearly_balance_sheet_assets table.
+  * - balance
+    - string
+    - Indication of whether a column is a credit or debit, as reported in the XBRL taxonomy.
+  * - borrower_id_rus
+    - string
+    - Unique identifier of RUS (Rural Utilities Service) borrower. These ID's are structured as: two character state acronyms followed by four digits.
+  * - borrower_name_rus
+    - string
+    - The name of the RUS (Rural Utilities Service) borrower.
+  * - is_total
+    - boolean
+    - Whether or not this record represents a total.
+  * - report_date
+    - date
+    - Date reported.
+
+.. _core_rus7__yearly_balance_sheet_liabilities:
+
+-------------------------------------------------------------------------------
+core_rus7__yearly_balance_sheet_liabilities
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_rus7__yearly_balance_sheet_liabilities>`__
+
+Annual time series of liabilities and other credits from the balance sheet.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  USDA RUS Form 7 -- Financial and Operating Report: Electric Distribution (Part C)
+
+Primary key:
+  report_date, borrower_id_rus, liability_type
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_rus7__yearly_balance_sheet_liabilities>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_liabilities.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_liabilities.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_liabilities.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_liabilities.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_balance_sheet_liabilities.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - balance
+    - string
+    - Indication of whether a column is a credit or debit, as reported in the XBRL taxonomy.
+  * - borrower_id_rus
+    - string
+    - Unique identifier of RUS (Rural Utilities Service) borrower. These ID's are structured as: two character state acronyms followed by four digits.
+  * - borrower_name_rus
+    - string
+    - The name of the RUS (Rural Utilities Service) borrower.
+  * - is_total
+    - boolean
+    - Whether or not this record represents a total.
+  * - liability_type
+    - string
+    - Type of liability being reported to the core_rus7__yearly_balance_sheet_liabilities table.
+  * - report_date
+    - date
+    - Date reported.
+
+.. _core_rus7__yearly_employee_statistics:
+
+-------------------------------------------------------------------------------
+core_rus7__yearly_employee_statistics
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_rus7__yearly_employee_statistics>`__
+
+Annual time series of statistics about employment and payroll.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  USDA RUS Form 7 -- Financial and Operating Report: Electric Distribution (Part H)
+
+Primary key:
+  report_date, borrower_id_rus
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_rus7__yearly_employee_statistics>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_rus7__yearly_employee_statistics.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_employee_statistics.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_employee_statistics.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_rus7__yearly_employee_statistics.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_employee_statistics.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - borrower_id_rus
+    - string
+    - Unique identifier of RUS (Rural Utilities Service) borrower. These ID's are structured as: two character state acronyms followed by four digits.
+  * - borrower_name_rus
+    - string
+    - The name of the RUS (Rural Utilities Service) borrower.
+  * - employee_hours_worked_over_time
+    - integer
+    - The number of overtime hours worked by employees.
+  * - employee_hours_worked_regular_time
+    - integer
+    - The number of regular (non-overtime) hours worked by employees.
+  * - employees_fte_num
+    - integer
+    - The number of full time employees.
+  * - payroll_capitalized
+    - integer
+    - The amount of payroll spent that was capitalized.
+  * - payroll_expensed
+    - integer
+    - The amount of payroll spent that was expensed.
+  * - payroll_other
+    - integer
+    - The amount of payroll spent that was funded by other means - not capitalized or expensed.
+  * - report_date
+    - date
+    - Date reported.
+
+.. _core_rus7__yearly_meeting_and_board:
+
+-------------------------------------------------------------------------------
+core_rus7__yearly_meeting_and_board
+-------------------------------------------------------------------------------
+Noticed any irregularities with this table? `File a report. <https://github.com/catalyst-cooperative/pudl/issues/new?template=data_bug_report.yml&table=core_rus7__yearly_meeting_and_board>`__
+
+Annual time series of governance information about RUS borrowers' annual member meetings as well as information about their board.
+
+Processing:
+  Data has been cleaned and organized into well-modeled tables that serve as building blocks for downstream wide tables and analyses.
+
+Source:
+  USDA RUS Form 7 -- Financial and Operating Report: Electric Distribution (Part M)
+
+Primary key:
+  report_date, borrower_id_rus
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* This table is experimental and/or a work in progress and may change in the future.
+
+Access methods
+^^^^^^^^^^^^^^^
+
+* `Browse and query this table online <https: //data.catalyst.coop/search?&q=name:core_rus7__yearly_meeting_and_board>`__
+* `Download this table as a Parquet file <https: //s3.us-west-2.amazonaws.com/pudl.catalyst.coop/nightly/core_rus7__yearly_meeting_and_board.parquet>`__
+
+.. tabs::
+
+   .. tab:: pandas
+
+      .. code-block:: python
+
+         import pandas as pd
+         df = pd.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_meeting_and_board.parquet",
+             dtype_backend="pyarrow",
+         )
+
+   .. tab:: polars
+
+      .. code-block:: python
+
+         import polars as pl
+         df = pl.read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_meeting_and_board.parquet",
+         )
+
+   .. tab:: SQL (DuckDB)
+
+      .. code-block:: sql
+
+         SELECT * FROM 's3://pudl.catalyst.coop/nightly/core_rus7__yearly_meeting_and_board.parquet';
+
+   .. tab:: R
+
+      .. code-block:: r
+
+         library(arrow)
+         df <- read_parquet(
+             "s3://pudl.catalyst.coop/nightly/core_rus7__yearly_meeting_and_board.parquet"
+         )
+
+Columns
+^^^^^^^
+
+.. list-table::
+  :widths: auto
+  :header-rows: 1
+
+  * - **Field Name**
+    - **Type**
+    - **Description**
+  * - board_members_num
+    - integer
+    - The total number of board members.
+  * - borrower_id_rus
+    - string
+    - Unique identifier of RUS (Rural Utilities Service) borrower. These ID's are structured as: two character state acronyms followed by four digits.
+  * - borrower_name_rus
+    - string
+    - The name of the RUS (Rural Utilities Service) borrower.
+  * - does_manager_have_written_contract
+    - boolean
+    - Whether or not the RUS borrower's manager has a written contract.
+  * - fees_and_expenses_for_board_members
+    - integer
+    - The total amount of fees and expenses for board members.
+  * - last_annual_meeting_date
+    - string
+    - The date of the last annual meeting.
+  * - members_num
+    - integer
+    - The total number of members.
+  * - members_present_at_meeting_num
+    - integer
+    - The number of members present at the last annual meeting.
+  * - members_voting_by_proxy_or_mail_num
+    - integer
+    - The number of members voting by mail or by proxy.
+  * - report_date
+    - date
+    - Date reported.
+  * - was_quorum_present
+    - boolean
+    - Whether or not quorum was met.
+
 .. _core_sec10k__assn_exhibit_21_subsidiaries_and_eia_utilities:
 
 -------------------------------------------------------------------------------
@@ -31652,6 +33438,13 @@ Source:
 
 Primary key:
   subsidiary_company_id_sec10k
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -31738,6 +33531,13 @@ Source:
 
 Primary key:
   subsidiary_company_id_sec10k
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -31832,6 +33632,8 @@ Usage Warnings
 
 * This data has been matched probabilistically using a machine learning model and contains some incompletions and errors. It should not be treated as ground truth data.
 
+* PUDL does not currently update its copy of this data.
+
 
 
 
@@ -31922,6 +33724,13 @@ Source:
 
 Primary key:
   This table has no primary key.
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -32026,6 +33835,13 @@ Source:
 
 Primary key:
   filename_sec10k, central_index_key
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -32213,6 +34029,8 @@ Usage Warnings
 
 * This data has been extracted probabilistically using a machine learning model and contains some incompletions and errors. It should not be treated as ground truth data.
 
+* PUDL does not currently update its copy of this data.
+
 
 
 
@@ -32311,6 +34129,13 @@ Source:
 
 Primary key:
   filename_sec10k
+
+
+Usage Warnings
+^^^^^^^^^^^^^^
+
+
+* PUDL does not currently update its copy of this data.
 
 
 
@@ -32425,6 +34250,27 @@ Usage Warnings
 
 
 * This table has not been harvested with other EIA 923 or 860 data. The same variables present in this table may show up in other _core tables in other years.
+
+
+
+
+
+Additional Details
+^^^^^^^^^^^^^^^^^^
+
+A single plant can have
+several collections of cooling equipment, so each line in this table represents one
+cooling system at a given plant. You can determine how to link each set of cooling
+equipment to specific boilers in a plant via :ref:`core_eia860__assn_boiler_cooling`.
+
+EIA-860 respondents are required to submit information about cooling equipment for
+plants over 100 MW - including steam, combined cycle, nuclear or solar thermal
+generators.
+
+This table has been cleaned, but not tidied/normalized with other EIA 923 or 860
+data. The same variables present in this table may show up in other
+tables and/or in other years. Once this table has been harvested, it will be converted
+into a``core`` table.
 
 Access methods
 ^^^^^^^^^^^^^^^
@@ -33791,7 +35637,7 @@ Source:
   Pipelines and Hazardous Materials Safety Administration (PHMSA) Annual Natural Gas Report (Part D - Excavation Damage)
 
 Primary key:
-  report_id, report_date, operator_id_phmsa, operating_state, damage_type, damage_sub_type We expect the primary key for this table should be report_id, damage_type and damage_sub_type - but there are duplicates and we have not fully cleaned this table.
+  report_id, damage_type, damage_sub_type
 
 
 Usage Warnings

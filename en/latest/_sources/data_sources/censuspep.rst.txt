@@ -17,6 +17,8 @@ Population Estimates Program&#39;s (PEP) Federal Information Processing Series (
      - 2009-2024
    * - PUDL Code
      - ``censuspep``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.14624611 <https://doi.org/10.5281/zenodo.14624611>`__
    * - Issues
      - `Open Population Estimates Program&#39;s (PEP) Federal Information Processing Series (FIPS) Codes issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Acensuspep>`__
 

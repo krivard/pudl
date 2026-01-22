@@ -32,14 +32,12 @@ Functions
    pudl.transform.vcerare._make_cap_fac_frac
    pudl.transform.vcerare._check_for_valid_counties
    pudl.transform.vcerare._standardize_census_names
-   pudl.transform.vcerare._handle_2015_nulls
    pudl.transform.vcerare._clip_unexpected_2016_pv_capacity
-   pudl.transform.vcerare._combine_all_cap_fac_dfs
-   pudl.transform.vcerare._combine_cap_fac_with_fips_df
    pudl.transform.vcerare._get_parquet_path
    pudl.transform.vcerare._spot_fix_great_lakes_values
    pudl.transform.vcerare._spot_fix_great_lakes_columns
    pudl.transform.vcerare.one_year_hourly_available_capacity_factor
+   pudl.transform.vcerare.merge_all_vce_tables
    pudl.transform.vcerare.out_vcerare__hourly_available_capacity_factor
 
 
@@ -133,16 +131,6 @@ Module Contents
    as lakes don't have comparable values in the Census PEP data and we drop the city values.
 
 
-.. py:function:: _handle_2015_nulls(combined_df: pandas.DataFrame, year: int)
-
-   Handle unexpected null values in 2015.
-
-   In 2015, there are a few hundred null values for PV capacity factors that
-   should be zeroed out, according to correspondence with the data provider.
-   This function narrowly zeroes out these nulls, expecting that the rest of the
-   data should conform to the expectation of no-null values.
-
-
 .. py:function:: _clip_unexpected_2016_pv_capacity(df: pandas.DataFrame, df_name: str, year: int)
 
    Handle unexpectedly large PV capacity values in 2016.
@@ -152,16 +140,6 @@ Module Contents
    should be zeroed out, according to correspondence with the data provider.
    This function narrowly zeroes out these nulls, expecting that the rest of the
    data should conform to the expectation of no-null values.
-
-
-.. py:function:: _combine_all_cap_fac_dfs(cap_fac_dict: dict[str, pandas.DataFrame]) -> pandas.DataFrame
-
-   Combine capacity factor tables.
-
-
-.. py:function:: _combine_cap_fac_with_fips_df(cap_fac_df: pandas.DataFrame, fips_df: pandas.DataFrame) -> pandas.DataFrame
-
-   Combine the combined capacity factor df with the FIPS df.
 
 
 .. py:function:: _get_parquet_path()
@@ -176,7 +154,7 @@ Module Contents
    Normalize spelling of great lakes in column names.
 
 
-.. py:function:: one_year_hourly_available_capacity_factor(year: int, raw_vcerare__lat_lon_fips: pandas.DataFrame, raw_vcerare__fixed_solar_pv_lat_upv: pandas.DataFrame, raw_vcerare__offshore_wind_power_140m: pandas.DataFrame, raw_vcerare__onshore_wind_power_100m: pandas.DataFrame, census_pep_data: pandas.DataFrame) -> pandas.DataFrame
+.. py:function:: one_year_hourly_available_capacity_factor(year: int, fips_df_census: pandas.DataFrame, raw_vcerare__fixed_solar_pv_lat_upv: pandas.DataFrame, raw_vcerare__offshore_wind_power_140m: pandas.DataFrame, raw_vcerare__onshore_wind_power_100m: pandas.DataFrame) -> dict[str, pudl.helpers.ParquetData]
 
    Transform raw Vibrant Clean Energy renewable generation profiles.
 
@@ -184,7 +162,12 @@ Module Contents
    the columns for each county or subregion into a single place_name column.
 
 
-.. py:function:: out_vcerare__hourly_available_capacity_factor(context, raw_vcerare__lat_lon_fips: pandas.DataFrame, raw_vcerare__fixed_solar_pv_lat_upv: pandas.DataFrame, raw_vcerare__offshore_wind_power_140m: pandas.DataFrame, raw_vcerare__onshore_wind_power_100m: pandas.DataFrame, _core_censuspep__yearly_geocodes: pandas.DataFrame)
+.. py:function:: merge_all_vce_tables(transformed_tables: dict[str, pudl.helpers.ParquetData], vce_fips_table: pudl.helpers.ParquetData, table_name: str, year: int) -> pudl.helpers.ParquetData
+
+   Merge cleaned VCE tables to create final ``out`` table and write as partitioned parquet file.
+
+
+.. py:function:: out_vcerare__hourly_available_capacity_factor(context, raw_vcerare__fixed_solar_pv_lat_upv: dict[int, pudl.helpers.ParquetData], raw_vcerare__offshore_wind_power_140m: dict[int, pudl.helpers.ParquetData], raw_vcerare__onshore_wind_power_100m: dict[int, pudl.helpers.ParquetData], raw_vcerare__lat_lon_fips: pandas.DataFrame, _core_censuspep__yearly_geocodes: pandas.DataFrame) -> polars.LazyFrame
 
    Transform raw Vibrant Clean Energy renewable generation profiles.
 

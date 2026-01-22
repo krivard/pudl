@@ -23,6 +23,8 @@ EIA Form 923 -- Power Plant Operations Report
      - 2001-2025
    * - PUDL Code
      - ``eia923``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.4127039 <https://doi.org/10.5281/zenodo.4127039>`__
    * - Issues
      - `Open EIA Form 923 -- Power Plant Operations Report issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aeia923>`__
 

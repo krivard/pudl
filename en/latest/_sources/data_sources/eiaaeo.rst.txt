@@ -19,6 +19,8 @@ EIA Annual Energy Outlook (AEO)
      - 2023-2025
    * - PUDL Code
      - ``eiaaeo``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.10838487 <https://doi.org/10.5281/zenodo.10838487>`__
    * - Issues
      - `Open EIA Annual Energy Outlook (AEO) issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aeiaaeo>`__
 

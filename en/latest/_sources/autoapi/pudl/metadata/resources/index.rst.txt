@@ -30,11 +30,14 @@ Submodules
    /autoapi/pudl/metadata/resources/ferc1/index
    /autoapi/pudl/metadata/resources/ferc1_eia_record_linkage/index
    /autoapi/pudl/metadata/resources/ferc714/index
+   /autoapi/pudl/metadata/resources/ferceqr/index
    /autoapi/pudl/metadata/resources/glue/index
    /autoapi/pudl/metadata/resources/gridpathratoolkit/index
    /autoapi/pudl/metadata/resources/nrelatb/index
    /autoapi/pudl/metadata/resources/phmsagas/index
    /autoapi/pudl/metadata/resources/pudl/index
+   /autoapi/pudl/metadata/resources/rus12/index
+   /autoapi/pudl/metadata/resources/rus7/index
    /autoapi/pudl/metadata/resources/sec10k/index
    /autoapi/pudl/metadata/resources/vcerare/index
 

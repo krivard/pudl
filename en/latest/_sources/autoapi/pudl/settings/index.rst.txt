@@ -15,6 +15,7 @@ Attributes
 .. autoapisummary::
 
    pudl.settings.logger
+   pudl.settings.ferceqr_year_quarters
 
 
 Classes
@@ -47,6 +48,8 @@ Classes
    pudl.settings.GPRATKProcLevel
    pudl.settings.GridPathRAToolkitSettings
    pudl.settings.EiaSettings
+   pudl.settings.Rus7Settings
+   pudl.settings.Rus12Settings
    pudl.settings.DatasetsSettings
    pudl.settings.Ferc1DbfToSqliteSettings
    pudl.settings.FercGenericXbrlToSqliteSettings
@@ -76,6 +79,9 @@ Module Contents
 ---------------
 
 .. py:data:: logger
+
+.. py:data:: ferceqr_year_quarters
+   :type:  dagster.StaticPartitionsDefinition
 
 .. py:class:: XbrlFormNumber(*args, **kwds)
 
@@ -854,6 +860,46 @@ Module Contents
 
 
 
+.. py:class:: Rus7Settings(/, **data: Any)
+
+   Bases: :py:obj:`GenericDatasetSettings`
+
+
+   An immutable pydantic model to validate RUS-7 datasets settings.
+
+
+   .. py:attribute:: data_source
+      :type:  ClassVar[pudl.metadata.classes.DataSource]
+
+      The DataSource metadata object for this dataset.
+
+
+   .. py:attribute:: years
+      :type:  list[int]
+
+      The list of years to validate.
+
+
+.. py:class:: Rus12Settings(/, **data: Any)
+
+   Bases: :py:obj:`GenericDatasetSettings`
+
+
+   An immutable pydantic model to validate RUS Form 12 settings.
+
+
+   .. py:attribute:: data_source
+      :type:  ClassVar[pudl.metadata.classes.DataSource]
+
+      The DataSource metadata object for this dataset.
+
+
+   .. py:attribute:: years
+      :type:  list[int]
+
+      The list of years to validate.
+
+
 .. py:class:: DatasetsSettings(/, **data: Any)
 
    Bases: :py:obj:`FrozenBaseModel`
@@ -924,6 +970,18 @@ Module Contents
 
    .. py:attribute:: censuspep
       :type:  CensusPepSettings | None
+      :value: None
+
+
+
+   .. py:attribute:: rus7
+      :type:  Rus7Settings | None
+      :value: None
+
+
+
+   .. py:attribute:: rus12
+      :type:  Rus12Settings | None
       :value: None
 
 

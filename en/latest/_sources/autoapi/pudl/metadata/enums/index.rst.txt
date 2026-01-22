@@ -53,6 +53,8 @@ Attributes
    pudl.metadata.enums.DAMAGE_TYPES_PHMSAGAS
    pudl.metadata.enums.DAMAGE_SUB_TYPES_PHMSAGAS
    pudl.metadata.enums.INSTALL_DECADE_PATTERN_PHMSAGAS
+   pudl.metadata.enums.ASSET_TYPES_RUS7
+   pudl.metadata.enums.LIABILITY_TYPES_RUS7
 
 
 Module Contents
@@ -301,5 +303,15 @@ Module Contents
 
 .. py:data:: INSTALL_DECADE_PATTERN_PHMSAGAS
    :value: '(\\d{4}s|unknown_decade|pre_1940|total_decades)'
+
+
+.. py:data:: ASSET_TYPES_RUS7
+   :type:  set[str]
+   :value: ['utility_plant_in_service', 'construction_work_in_progress', 'total_utility_plant',...
+
+
+.. py:data:: LIABILITY_TYPES_RUS7
+   :type:  set[str]
+   :value: ['memberships', 'patronage_capital', 'operating_margins_prior_years',...
 
 

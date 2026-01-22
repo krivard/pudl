@@ -23,6 +23,8 @@ EIA Form 860 -- Annual Electric Generator Report
      - 2001-2024
    * - PUDL Code
      - ``eia860``
+   * - Unprocessed Source Data Archive
+     - `10.5281/zenodo.4127026 <https://doi.org/10.5281/zenodo.4127026>`__
    * - Issues
      - `Open EIA Form 860 -- Annual Electric Generator Report issues <https://github.com/catalyst-cooperative/pudl/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Aeia860>`__
 

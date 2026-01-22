@@ -12,7 +12,7 @@ Also included is a table of non-standard codes that are mapped to canonical, sta
 core_eia__codes_averaging_periods
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;the averaging period specified by emissions statutes and regulations for the EIA 860.&#39;}
+Code table containing descriptions of categorical codes for the averaging period specified by emissions statutes and regulations for the EIA 860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_averaging_periods.csv
@@ -27,7 +27,7 @@ core_eia__codes_averaging_periods
 core_eia__codes_balancing_authorities
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;balancing authorities in EIA 860, EIA 923, and EIA 930.&#39;}
+Code table containing descriptions of categorical codes for balancing authorities in EIA 860, EIA 923, and EIA 930.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_balancing_authorities.csv
@@ -91,7 +91,7 @@ core_eia__codes_balancing_authorities
 core_eia__codes_boiler_generator_assn_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;boiler-generator associations in the EIA 860.&#39;}
+Code table containing descriptions of categorical codes for boiler-generator associations in the EIA 860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_boiler_generator_assn_types.csv
@@ -117,7 +117,7 @@ core_eia__codes_boiler_generator_assn_types
 core_eia__codes_boiler_status
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;boiler status in the EIA 860.&#39;}
+Code table containing descriptions of categorical codes for boiler status in the EIA 860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_boiler_status.csv
@@ -155,7 +155,7 @@ core_eia__codes_boiler_status
 core_eia__codes_boiler_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;boiler regulatory types in the EIA 860.&#39;}
+Code table containing descriptions of categorical codes for boiler regulatory types in the EIA 860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_boiler_types.csv
@@ -170,7 +170,7 @@ core_eia__codes_boiler_types
 core_eia__codes_coalmine_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;coalmines reported as fuel sources in the EIA-923.&#39;}
+Code table containing descriptions of categorical codes for coalmines reported as fuel sources in the EIA-923.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_coalmine_types.csv
@@ -200,7 +200,7 @@ core_eia__codes_coalmine_types
 core_eia__codes_contract_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;fuel supply contracts reported in EIA-923.&#39;}
+Code table containing descriptions of categorical codes for fuel supply contracts reported in EIA-923.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_contract_types.csv
@@ -224,7 +224,7 @@ core_eia__codes_contract_types
 core_eia__codes_cooling_system_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;cooling systems.&#39;}
+Code table containing descriptions of categorical codes for cooling systems.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_cooling_system_types.csv
@@ -274,7 +274,7 @@ core_eia__codes_cooling_system_types
 core_eia__codes_cooling_tower_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;cooling towers.&#39;}
+Code table containing descriptions of categorical codes for cooling towers.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_cooling_tower_types.csv
@@ -289,7 +289,7 @@ core_eia__codes_cooling_tower_types
 core_eia__codes_cooling_water_sources
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;cooling water sources in EIA-860.&#39;}
+Code table containing descriptions of categorical codes for cooling water sources in EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_cooling_water_sources.csv
@@ -304,7 +304,7 @@ core_eia__codes_cooling_water_sources
 core_eia__codes_cooling_water_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;cooling water.&#39;}
+Code table containing descriptions of categorical codes for cooling water.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_cooling_water_types.csv
@@ -319,7 +319,7 @@ core_eia__codes_cooling_water_types
 core_eia__codes_emission_control_equipment_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;emissions control equipment installed on a boiler.&#39;}
+Code table containing descriptions of categorical codes for emissions control equipment installed on a boiler.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_emission_control_equipment_types.csv
@@ -349,7 +349,7 @@ core_eia__codes_emission_control_equipment_types
 core_eia__codes_energy_sources
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;energy sources reported to EIA.&#39;, &#39;additional_details_text&#39;: &#39;Compiled from EIA-860 instructions and EIA-923 file layout spreadsheets.&#39;}
+Code table containing descriptions of categorical codes for energy sources reported to EIA.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_energy_sources.csv
@@ -393,7 +393,7 @@ core_eia__codes_energy_sources
 core_eia__codes_environmental_equipment_manufacturers
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;manufacturers of boilers and environmental control equipment in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for manufacturers of boilers and environmental control equipment in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_environmental_equipment_manufacturers.csv
@@ -408,7 +408,7 @@ core_eia__codes_environmental_equipment_manufacturers
 core_eia__codes_firing_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;boiler firing types in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for boiler firing types in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_firing_types.csv
@@ -442,7 +442,7 @@ core_eia__codes_firing_types
 core_eia__codes_fuel_transportation_modes
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;fuel transportation modes reported in the EIA-860 and EIA-923.&#39;}
+Code table containing descriptions of categorical codes for fuel transportation modes reported in the EIA-860 and EIA-923.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_fuel_transportation_modes.csv
@@ -486,7 +486,7 @@ core_eia__codes_fuel_transportation_modes
 core_eia__codes_fuel_types_agg
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;aggregated fuel types used in the Annual Energy Review or Monthly Energy Review.&#39;, &#39;additional_details_text&#39;: &#39;See EIA-923 Fuel Code table for additional information.&#39;}
+Code table containing descriptions of categorical codes for aggregated fuel types used in the Annual Energy Review or Monthly Energy Review.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_fuel_types_agg.csv
@@ -501,7 +501,7 @@ core_eia__codes_fuel_types_agg
 core_eia__codes_mercury_compliance_strategies
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;compliance strategies used to control mercury in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for compliance strategies used to control mercury in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_mercury_compliance_strategies.csv
@@ -516,7 +516,7 @@ core_eia__codes_mercury_compliance_strategies
 core_eia__codes_momentary_interruptions
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;utility definitions of momentary service interruptions.&#39;}
+Code table containing descriptions of categorical codes for utility definitions of momentary service interruptions.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_momentary_interruptions.csv
@@ -540,7 +540,7 @@ core_eia__codes_momentary_interruptions
 core_eia__codes_nox_compliance_strategies
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;compliance strategies used to control nitrogen oxide in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for compliance strategies used to control nitrogen oxide in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_nox_compliance_strategies.csv
@@ -570,7 +570,7 @@ core_eia__codes_nox_compliance_strategies
 core_eia__codes_nox_control_status
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;the operational status of nitrogen oxide control units associated with boilers in the EIA-860 data.&#39;}
+Code table containing descriptions of categorical codes for the operational status of nitrogen oxide control units associated with boilers in the EIA-860 data.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_nox_control_status.csv
@@ -585,7 +585,7 @@ core_eia__codes_nox_control_status
 core_eia__codes_nox_units
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;units of measurement for nitrogen oxide in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for units of measurement for nitrogen oxide in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_nox_units.csv
@@ -600,7 +600,7 @@ core_eia__codes_nox_units
 core_eia__codes_operational_status
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;operational status reported to EIA.&#39;, &#39;additional_details_text&#39;: &#39;Compiled from EIA-860 instructions and EIA-923 file layout spreadsheets.&#39;}
+Code table containing descriptions of categorical codes for operational status reported to EIA.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_operational_status.csv
@@ -646,7 +646,7 @@ core_eia__codes_operational_status
 core_eia__codes_particulate_compliance_strategies
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;compliance strategies used to control particulate matter in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for compliance strategies used to control particulate matter in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_particulate_compliance_strategies.csv
@@ -661,7 +661,7 @@ core_eia__codes_particulate_compliance_strategies
 core_eia__codes_particulate_units
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;units of measurement for particulate matter in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for units of measurement for particulate matter in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_particulate_units.csv
@@ -685,7 +685,7 @@ core_eia__codes_particulate_units
 core_eia__codes_prime_movers
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;prime movers reported in the EIA-860 and EIA-923.&#39;}
+Code table containing descriptions of categorical codes for prime movers reported in the EIA-860 and EIA-923.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_prime_movers.csv
@@ -711,7 +711,7 @@ core_eia__codes_prime_movers
 core_eia__codes_regulations
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;levels of statutes and codes under which boilers operate in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for levels of statutes and codes under which boilers operate in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_regulations.csv
@@ -735,7 +735,7 @@ core_eia__codes_regulations
 core_eia__codes_reporting_frequencies
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;the reporting frequencies used by plants in the EIA-923.&#39;}
+Code table containing descriptions of categorical codes for the reporting frequencies used by plants in the EIA-923.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_reporting_frequencies.csv
@@ -750,7 +750,7 @@ core_eia__codes_reporting_frequencies
 core_eia__codes_sector_consolidated
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;EIA consolidated NAICS sectors.&#39;, &#39;additional_details_text&#39;: &#39;Codes and descriptions taken from the EIA-923 File Layout spreadsheet.&#39;}
+Code table containing descriptions of categorical codes for EIA consolidated NAICS sectors.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_sector_consolidated.csv
@@ -765,7 +765,7 @@ core_eia__codes_sector_consolidated
 core_eia__codes_so2_compliance_strategies
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;compliance strategies used to control sulfur dioxide in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for compliance strategies used to control sulfur dioxide in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_so2_compliance_strategies.csv
@@ -789,7 +789,7 @@ core_eia__codes_so2_compliance_strategies
 core_eia__codes_so2_units
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;units of measurement for sulfur dioxide in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for units of measurement for sulfur dioxide in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_so2_units.csv
@@ -804,7 +804,7 @@ core_eia__codes_so2_units
 core_eia__codes_sorbent_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;flue gas desulfurization sorbent types used in EIA-860.&#39;}
+Code table containing descriptions of categorical codes for flue gas desulfurization sorbent types used in EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_sorbent_types.csv
@@ -830,7 +830,7 @@ core_eia__codes_sorbent_types
 core_eia__codes_steam_plant_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;steam plants in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for steam plants in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_steam_plant_types.csv
@@ -845,7 +845,7 @@ core_eia__codes_steam_plant_types
 core_eia__codes_storage_enclosure_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;energy storage enclosures.&#39;}
+Code table containing descriptions of categorical codes for energy storage enclosures.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_storage_enclosure_types.csv
@@ -860,7 +860,7 @@ core_eia__codes_storage_enclosure_types
 core_eia__codes_storage_technology_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;energy storage technologies.&#39;}
+Code table containing descriptions of categorical codes for energy storage technologies.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_storage_technology_types.csv
@@ -875,7 +875,7 @@ core_eia__codes_storage_technology_types
 core_eia__codes_wet_dry_bottom
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;boiler bottoms in the EIA-860.&#39;}
+Code table containing descriptions of categorical codes for boiler bottoms in the EIA-860.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_wet_dry_bottom.csv
@@ -890,7 +890,7 @@ core_eia__codes_wet_dry_bottom
 core_eia__codes_wind_quality_class
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;wind quality classes.&#39;}
+Code table containing descriptions of categorical codes for wind quality classes.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_eia__codes_wind_quality_class.csv
@@ -905,7 +905,7 @@ core_eia__codes_wind_quality_class
 core_ferc1__codes_power_purchase_types
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;electric power purchase types.&#39;}
+Code table containing descriptions of categorical codes for electric power purchase types.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_ferc1__codes_power_purchase_types.csv
@@ -920,7 +920,7 @@ core_ferc1__codes_power_purchase_types
 core_pudl__codes_data_maturities
 ---------------------------------------------------------------
 
-{&#39;additional_summary_text&#39;: &#39;maturity levels of data records. Some data sources report less-than-final data. PUDL sometimes includes this data, but use at your own risk.&#39;}
+Code table containing descriptions of categorical codes for maturity levels of data records. Some data sources report less-than-final data. PUDL sometimes includes this data, but use at your own risk.
 
 .. csv-table:: Code Mappings
   :file: /data_dictionaries/code_csvs/core_pudl__codes_data_maturities.csv

@@ -19,6 +19,7 @@ Submodules
    /autoapi/pudl/etl/check_foreign_keys/index
    /autoapi/pudl/etl/cli/index
    /autoapi/pudl/etl/eia_bulk_elec_assets/index
+   /autoapi/pudl/etl/ferceqr_deployment/index
    /autoapi/pudl/etl/glue_assets/index
    /autoapi/pudl/etl/static_assets/index
 
@@ -33,6 +34,7 @@ Attributes
    pudl.etl.raw_module_groups
    pudl.etl.core_module_groups
    pudl.etl.out_module_groups
+   pudl.etl.ferceqr_deployment_assets
    pudl.etl.all_asset_modules
    pudl.etl.default_assets
    pudl.etl.default_asset_checks
@@ -219,6 +221,8 @@ Package Contents
 .. py:data:: core_module_groups
 
 .. py:data:: out_module_groups
+
+.. py:data:: ferceqr_deployment_assets
 
 .. py:data:: all_asset_modules
 
