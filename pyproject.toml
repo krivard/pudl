@@ -125,6 +125,7 @@ prettier = ">=3.7,<4"
 pyarrow = "<21"
 pydantic = ">=2.12"
 pydantic-settings = ">=2.11"
+pydata-sphinx-theme = ">=0.16.1"
 pygraphviz = ">=1"
 pytest = ">=9"
 pytest-console-scripts = ">=1.4"
@@ -171,8 +172,7 @@ zip = ">=3.0"
 # above in [tools.pixi.dependenccies] (for conda packages) or in this section, if they
 # happen to only be available via PyPI.
 "catalystcoop.pudl" = { path = ".", editable = true }
-# Furo is pure python and the conda package is like a year out of date.
-furo = ">=2025"
+
 [tool.pixi.package]
 version = "v0.0.0"
 

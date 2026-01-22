@@ -135,7 +135,7 @@ suppress_warnings = [
 
 # The theme to use for HTML and HTML Help pages.
 master_doc = "index"
-html_theme = "furo"
+html_theme = "pydata_sphinx_theme"
 html_logo = "_static/catalyst_logo-200x200.png"
 html_icon = "_static/favicon.ico"
 
@@ -152,6 +152,14 @@ html_theme_options = {
         "color-announcement-background": "yellow",
         "color-announcement-text": "red",
     },
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/catalyst-cooperative/pudl",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+        }
+    ],
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
