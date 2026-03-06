@@ -5,6 +5,18 @@
         "url": "https://krivard.github.io/pudl/en/latest/"
     },
     {
+        "version": "stable",
+        "url": "https://krivard.github.io/pudl/en/stable/"
+    },
+    {
+        "version": "v2026.2.0",
+        "url": "https://krivard.github.io/pudl/en/v2026.2.0/"
+    },
+    {
+        "version": "v2024.11.0",
+        "url": "https://krivard.github.io/pudl/en/v2024.11.0/"
+    },
+    {
         "version": "v2099.9.9",
         "url": "https://krivard.github.io/pudl/en/v2099.9.9/"
     }
